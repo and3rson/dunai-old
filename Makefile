@@ -3,6 +3,9 @@ ECS_URL = 193635214029.dkr.ecr.eu-central-1.amazonaws.com/dunai
 dev: | build
 	docker-compose -f ops/dev/docker-compose.yml -p dunai up
 
+prod: | build
+	docker-compose -f ops/prod/docker-compose.yml -p dunai up
+
 bash:
 	docker exec -it dunai_app_1 bash
 
