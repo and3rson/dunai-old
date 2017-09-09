@@ -6,7 +6,7 @@ build:
 run: | build
 	docker run --rm --name dunai -it dunai
 
-deploy:
+deploy: | build
 	docker tag dunai ${ECS_URL}:latest
 	docker push ${ECS_URL}:latest
 
