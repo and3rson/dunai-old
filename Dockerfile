@@ -10,7 +10,7 @@ WORKDIR /root/dunai
 
 COPY requirements.txt /root/dunai
 
-RUN pip install -r ./requirements.txt
+RUN pip3.6 install -r ./requirements.txt
 
 COPY manage.py /root/dunai
 COPY dunai /root/dunai/dunai
