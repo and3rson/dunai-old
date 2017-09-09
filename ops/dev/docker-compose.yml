@@ -1,0 +1,27 @@
+version: '2.1'
+services:
+    app:
+        image: dunai
+        network_mode: "bridge"
+        environment:
+            PYTHONUNBUFFERED: 0
+            DJANGO_SETTINGS_MODULE: 'dunai.settings.dev'
+        command: >
+            /bin/bash -c "
+                ./manage.py migrate
+                ./manage.py runserver 0.0.0.0:8000
+            "
+        volumes:
+            - .:/root/dunai
+        links:
+            - postgres
+        ports:
+            - 8000:8000
+    postgres:
+        image: postgres:9.6
+        network_mode: "bridge"
+        environment:
+            POSTGRES_DB: biobank
+            POSTGRES_USER: biobank
+            POSTGRES_PASSWORD: biobank
+

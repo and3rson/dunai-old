@@ -1,0 +1,15 @@
+.cache
+.env
+.git
+.idea
+build
+htmlcov
+tmp
+__pycache__
+*.pyc
+*.pyo
+**/*.pyc
+**/*.pyo
+private
+./static
+
