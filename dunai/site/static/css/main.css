@@ -1,0 +1,27 @@
+html, body {
+    background: #212;
+    font-family: Roboto;
+    font-size: 12px;
+    color: #FFF;
+}
+
+h1, h2, h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+h1.a {
+    font-size: 5rem;
+    margin-bottom: 0;
+}
+
+h1.b {
+    margin-top: 0;
+    font-size: 6rem;
+    letter-spacing: 0.7rem;
+}
+
+.center {
+    text-align: center;
+}
+

@@ -12,7 +12,7 @@ services:
                 ./manage.py runserver 0.0.0.0:8000
             "
         volumes:
-            - .:/root/dunai
+            - ../..:/root/dunai
         links:
             - postgres
         ports:
