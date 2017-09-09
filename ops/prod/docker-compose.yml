@@ -5,7 +5,7 @@ services:
         network_mode: "bridge"
         environment:
             PYTHONUNBUFFERED: 0
-            DJANGO_SETTINGS_MODULE: 'dunai.settings.dev'
+            DJANGO_SETTINGS_MODULE: 'dunai.settings.prod'
         command: >
             /bin/bash -c "
                 ./manage.py migrate
