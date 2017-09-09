@@ -1,7 +1,7 @@
 version: '2.1'
 services:
     app:
-        image: dunai
+        image: 193635214029.dkr.ecr.eu-central-1.amazonaws.com/dunai:latest
         network_mode: "bridge"
         environment:
             PYTHONUNBUFFERED: 0
