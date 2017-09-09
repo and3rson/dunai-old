@@ -17,10 +17,12 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.contrib.staticfiles.views import serve
+from django.conf import settings
 from .site import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index)
-] + static(r'/static/', view=serve)
+    url(r'^$', views.index),
+    url(r'^static/(?P<path>.*)$', serve)  # , {'document_root': settings.BASE_DIR + '/dunai/static/'}),
+]
 
