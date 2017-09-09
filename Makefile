@@ -1,4 +1,4 @@
-ECS_URL = "193635214029.dkr.ecr.eu-central-1.amazonaws.com/dunai"
+ECS_URL = 193635214029.dkr.ecr.eu-central-1.amazonaws.com/dunai
 
 build:
 	docker build -t dunai .
