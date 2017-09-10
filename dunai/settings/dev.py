@@ -1,2 +1,2 @@
-from dunai.settings.common import *
+from .common import *
 

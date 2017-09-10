@@ -1,4 +1,4 @@
-from dunai.settings.common import *
+from .common import *
 
 DEBUG = False
 
@@ -12,5 +12,4 @@ ALLOWED_HOSTS = [
     'www.dun.ai',
     'www.dun.ai:8000'
 ]
-
 

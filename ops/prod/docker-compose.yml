@@ -1,25 +1,48 @@
 version: '2.1'
+volumes:
+    static:
 services:
     app:
-        image: 193635214029.dkr.ecr.eu-central-1.amazonaws.com/dunai:latest
-        network_mode: "bridge"
+        image: dunai
         environment:
             PYTHONUNBUFFERED: 0
             DJANGO_SETTINGS_MODULE: 'dunai.settings.prod'
         command: >
             /bin/bash -c "
+                ./manage.py collectstatic --no-input
                 ./manage.py migrate
                 ./manage.py runserver 0.0.0.0:8000
             "
         links:
             - postgres
-        ports:
-            - 8000:8000
+        volumes:
+            - static:/root/dunai/static
+        networks:
+            main:
+                aliases:
+                    - app
     postgres:
         image: postgres:9.6
-        network_mode: "bridge"
         environment:
             POSTGRES_DB: biobank
             POSTGRES_USER: biobank
             POSTGRES_PASSWORD: biobank
+        networks:
+            main:
+                aliases:
+                    - postgres
+    nginx:
+        image: nginx
+        ports:
+            - 8000:80
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+        volumes_from:
+            - app:ro
+        networks:
+            main:
+                aliases:
+                    - nginx
+networks:
+    main:
 

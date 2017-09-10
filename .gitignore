@@ -103,4 +103,5 @@ ENV/
 # other
 *.sqlite
 *.sqlite3
+/static
 
