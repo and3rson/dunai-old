@@ -17,6 +17,9 @@ before_install:
 install:
     - make build
 script:
+    - echo $RSA_PRIV > ~/.ssh/id_rsa
+    - echo $RSA_PUB > ~/.ssh/id_rsa.pub
+    - ssh root@dunai ls -l
     - echo Done
     # - docker-compose up --abort-on-container-exit --exit-code-from app
 
