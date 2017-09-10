@@ -15,8 +15,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 install:
-    - cd ./ops/prod/
-    - docker-compose build
+    - make build
 script:
     - echo Done
     # - docker-compose up --abort-on-container-exit --exit-code-from app
