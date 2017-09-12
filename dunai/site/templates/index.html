@@ -20,6 +20,22 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            {% for bio in cv.bio %}
+                <p>{{ bio|safe }}</p>
+            {% endfor %}
+        </div>
+        <div class="companies">
+            <div class="container">
+                {% for company in cv.companies %}
+                <h2>
+                    <span class="company-role">{{ company.role }}</span> <span class="company-name">@ {{ company.name }}</span> &rsaquo; {{ company.project }}
+                    <span class="company-date">{{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %}</span>
+                </h2>
+                <p>{{ company.description }}</p>
+                {% endfor %}
+            </div>
+        </div>
     </body>
 </html>
 
