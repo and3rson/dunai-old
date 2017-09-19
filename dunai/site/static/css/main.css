@@ -76,6 +76,7 @@ h2.sub {
 .container {
     margin: 0 auto;
     max-width: 1080px;
+    padding: 20px;
 }
 
 .splash {
