@@ -114,3 +114,25 @@ p {
     float: right;
 }
 
+.contacts {
+}
+
+.contacts .contact {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.contacts .contact a:link, .contacts .contact a:hover, .contacts .contact a:active, .contacts .contact a:visited {
+    color: var(--magenta);
+}
+
+@media screen and (max-width: 960px) {
+    .company-role, .company-name {
+        display: block;
+    }
+    .company-date {
+        display: block;
+        float: none;
+    }
+}
+
