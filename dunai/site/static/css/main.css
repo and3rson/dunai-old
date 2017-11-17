@@ -12,20 +12,34 @@ html, button, input, select, textarea,
     --off-white: #C4BE89;
     --cyan: #66D9EF;
     --deep-blue: #13354A;
-    --blue-gray: #293739;
-    --light-blue: #7E8E91;
-    --green: #A6E22E;
-    --yellow: #E6DB74;
+    --blue-gray: #465457;
+    --light-blue: #899CA1;
+    --green: #B6E354;
+    --yellow: #FEED6C;
     --orange: #FD971F;
     --red: #FF0000;
-    --magenta: #F92672;
+    --magenta: #FF5995;
+    /*--background: #1B1D1E;*/
+    /*--black: #080800;*/
+    /*--white: #F8F8F0;*/
+    /*--off-white: #C4BE89;*/
+    /*--cyan: #66D9EF;*/
+    /*--deep-blue: #13354A;*/
+    /*--blue-gray: #293739;*/
+    /*--light-blue: #7E8E91;*/
+    /*--green: #A6E22E;*/
+    /*--yellow: #E6DB74;*/
+    /*--orange: #FD971F;*/
+    /*--red: #FF0000;*/
+    /*--magenta: #F92672;*/
 }
 
 html, body {
     background: var(--black);
     font-family: Roboto;
     font-size: 12px;
-    color: var(--white);
+    color: var(--black);
+    transition: background-color 0.2s linear, color 0.2s linear;
 }
 
 h1, h2, h3 {
@@ -66,7 +80,7 @@ h2.sub {
     line-height: 100%;
     margin-top: 1rem;
     font-weight: 100;
-    color: var(--cyan);
+    color: var(--green);
 }
 
 .center {
@@ -83,7 +97,7 @@ h2.sub {
     min-height: 80vh;
     display: flex;
     align-items: center;
-    background: var(--black);
+    /*background: var(--black);*/
     color: var(--white);
     /*background: #212;*/
     /*background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));*/
@@ -95,7 +109,7 @@ p {
 }
 
 .companies {
-    background: var(--black);
+    /*background: var(--black);*/
     color: var(--off-white);
 }
 
