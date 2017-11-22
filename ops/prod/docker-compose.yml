@@ -1,6 +1,7 @@
 version: '2.1'
 volumes:
     static:
+    media:
 services:
     app:
         image: dunai
@@ -9,6 +10,11 @@ services:
             DJANGO_SETTINGS_MODULE: 'dunai.settings.prod'
         command: >
             /bin/bash -c "
+                while ! nc -z postgres 5432
+                do
+                    echo Waiting for PostgreSQL
+                    sleep 1
+                done
                 ./manage.py collectstatic --no-input
                 ./manage.py migrate
                 ./manage.py runserver 0.0.0.0:8000
@@ -17,6 +23,7 @@ services:
             - postgres
         volumes:
             - static:/root/dunai/static
+            - media:/root/dunai/media
         networks:
             main:
                 aliases:
@@ -24,9 +31,9 @@ services:
     postgres:
         image: postgres:9.6
         environment:
-            POSTGRES_DB: biobank
-            POSTGRES_USER: biobank
-            POSTGRES_PASSWORD: biobank
+            POSTGRES_DB: dunai
+            POSTGRES_USER: dunai
+            POSTGRES_PASSWORD: dunai
         networks:
             main:
                 aliases:

@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
         <!--<link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" />-->
         <!--<link rel="stylesheet" type="test/css" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css" />-->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?3" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?4" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <body>
@@ -33,6 +33,19 @@
                 {% endfor %}
             </div>
         </div>
+        <div class="container">
+            <div class="row">
+                {% for feature in features %}
+                <div class="col">
+                    <a href="#" class="feature">
+                        <div class="cover" style="background-image: url({{ feature.photo.url }})"></div>
+                        <div class="note">{{ feature.comment|safe }}</div>
+                    </a>
+                    <!--<img src="{{ feature.photo.url }}" class="responsive" />-->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
         <div class="container" --data-on-scroll="contacts">
             <div class="contacts">
                 <div class="contact">
@@ -46,6 +59,17 @@
                 </div>
             </div>
         </div>
+    <script type="text/javascript">
+        document.querySelector('.feature').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (this.parentNode.getAttribute('class').indexOf('maximized') !== -1) {
+                this.parentNode.setAttribute('class', 'col');
+            } else {
+                Array.prototype.slice.call(document.querySelectorAll('.feature')).forEach(feature => feature.parentNode.setAttribute('class', 'col'));
+                this.parentNode.setAttribute('class', 'col maximized');
+            }
+        });
+    </script>
     </body>
 </html>
 

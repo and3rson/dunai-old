@@ -104,4 +104,5 @@ ENV/
 *.sqlite
 *.sqlite3
 /static
+/media
 

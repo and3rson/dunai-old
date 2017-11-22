@@ -1,9 +1,12 @@
 FROM alpine
 MAINTAINER Andrew Dunai <a@dun.ai>
 
+RUN apk update
 RUN apk add --update
-RUN apk add python3 python3-dev py-pip
+RUN apk add python3 python3-dev py-pip libjpeg
 RUN apk add bash
+RUN apk add py3-pillow
+RUN apk add py3-psycopg2
 
 RUN mkdir /root/dunai
 WORKDIR /root/dunai
