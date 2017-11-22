@@ -38,7 +38,7 @@ html, body {
     background: var(--black);
     font-family: Roboto;
     font-size: 12px;
-    color: var(--black);
+    color: #FFFFFF;
     transition: background-color 0.2s linear, color 0.2s linear;
 }
 
@@ -48,11 +48,11 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
 }
 
 h3 {
@@ -106,11 +106,13 @@ h2.sub {
 p {
     font-size: 1.5rem;
     text-align: justify;
+    font-weight: 300;
+    font-family: Open Sans;
 }
 
 .companies {
     /*background: var(--black);*/
-    color: var(--off-white);
+    /*color: var(--off-white);*/
 }
 
 .company-role {
@@ -126,6 +128,14 @@ p {
 .company-date {
     color: var(--light-blue);
     float: right;
+}
+
+.company-descr {
+    padding: 0 0 2rem 4rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #EEEEEE;
+    /*color: var(--white);*/
 }
 
 .contacts {
@@ -147,6 +157,9 @@ p {
     .company-date {
         display: block;
         float: none;
+    }
+    .hide-on-sm {
+        display: none;
     }
 }
 

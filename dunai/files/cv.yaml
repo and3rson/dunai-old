@@ -1,19 +1,22 @@
-bio:
-  - Hi, my name is Andrew Dunai. I'm from Lviv, Ukraine. In Ukrainian my name is pronounced as "Андрій Дунай." I speak English, Ukrainian, po polsku und auch nur ein bischen Deutsch.
-  - So, here's my story!
-  - I'm 25. I graduated from Lviv Polytechnic National University where I studied "Computer Systems and Networks".
-  - My career started 13 years ago when I was 12 years old, and my first programming experience was writing apps in Basic, Pascal and PHP.
-  - I did a lot of various tasks at freelancer.com (which was called getafreelancer.com at that moment.) using Wordpress, PHPBB, VBulletin, Drupal and frameworks like CakePHP & Codeigniter.
-  - 'At 17 I worked for a Ukrainian ISP. I developed a social network for them. That was the peak of my popularity at that time: nearly 30,000 people were using it. I felt myself like a young Zuckerberg. The project was still alive until 2016 when it was shutdown - almost 8 years after I left the company.'
-  - Currently I'm working as a Software Architect at Newfire Partners - a company from US with HQ in Boston & Lviv, Ukraine. I'm focused on building distributed scalable systems. I mostly write in Python, NodeJS and Java. My current project is built on the top of RabbitMQ, Consul service discovery & AWS + Docker as deployment platform.
-  - 'Although Python is still my primary direction, I typically choose the stack of technologies based on the requirements of the project. I believe there is no such thing as "bad technology": every instrument is built to serve a specific job. I know Python from alpha to omega, but I also have equally strong background in Java, C, and JavaScript.'
-  - I love thrash metal, stoner rock & synthwave music. I also like traveling, snowboarding and playing with IoT.
-  - I love to travel! I've been to US (in particular New York - thanks to the IBM company who invited me to visit their mainframe center in Poughkeepsie, I've also been to Washington, Las Vegas, Los Angeles, Arizona, Baltimore, Kentucky), and in Europe I visited France, Netherlands, Sweden, Poland, Romania, Hungary, Austria, Czech Republic, Slovakia and Germany.
-  - Glad to meet you... Whoever you are :)
-
 companies:
-  - name: NewFire
-    project: Red e App
+  - name: T1DExchange (UnitIO)
+    role: Software Architect
+    technologies:
+      - Python
+      - NodeJS
+      - AMQP
+      - PostgreSQL
+      - MongoDB
+      - Service architecture
+      - NodeJS
+      - Docker
+      - Consul
+      - AWS
+    description:
+      Biological research project for people with type 1 diabetes. Includes whole infrastructure & framework for collecting, processing, managing and delivering biological & PHI data.
+    start: !!timestamp 2016-06-01
+
+  - name: Red e App
     role: Back-End Architect
     technologies:
       - Python
@@ -21,30 +24,41 @@ companies:
       - AMQP
       - PostgreSQL
       - Microservices
+      - Docker
       - Service discovery & configuration
       - AWS
     description:
       '"A distributed bulletproof system that provides the next-level messaging platform with sophisticated administration tools built for large enterprises." Planning & creating infrastructure & component architecture from scratch. Developing backend in Python & NodeJS. Automating testing & deployment processes with Docker & AWS. Decoupling components using RabbitMQ, Consul & Redis.'
     start: !!timestamp 2016-05-01
-    end: null
+    end: !!timestamp 2017-06-01
 
-  - name: N-iX
-    project: N1ght.com, Kultivo.com
+  - name: Kultivo.com
     role: Senior Python Developer
     technologies:
       - Python
       - JavaScript
-      - HTML/CSS
+      - Front End
       - PostgreSQL
-      - AWS
+    description:
+      Marketplace for courses as well as one-shot training sessions.
+    start: !!timestamp 2015-07-01
+    end: !!timestamp 2016-01-01
+
+  - name: N1ght.com
+    role: Senior Python Developer
+    technologies:
+      - Python
+      - JavaScript
+      - Front End
+      - PostgreSQL
+      - Heroku
       - Java (Android)
     description:
       '"A service that provides centralized access to aggregated data about events, festivals & parties around the globe." Developing Python backend, frontend & Android application.'
     start: !!timestamp 2014-11-01
-    end: !!timestamp 2016-01-01
+    end: !!timestamp 2015-07-01
 
-  - name: Svitla Systems
-    project: OspreyData, Inc.
+  - name: OspreyData, Inc.
     role: Senior Python Developer
     technologies:
       - Python
@@ -54,8 +68,7 @@ companies:
     start: !!timestamp 2014-09-01
     end: !!timestamp 2014-10-01
 
-  - name: N-iX
-    project: qBeats, Inc.
+  - name: qBeats, Inc.
     role: Senior Full-Stack Developer
     technologies:
       - Python
@@ -73,9 +86,8 @@ companies:
     start: !!timestamp 2013-08-01
     end: !!timestamp 2014-06-01
 
-  - name: Remit
-    project: Axiomatics
-    role: Senior Webmaster - PHP, administration
+  - name: Axiomatics
+    role: Senior Webmaster
     technologies:
       - PHP
       - MySQL
@@ -87,7 +99,6 @@ companies:
     end: !!timestamp 2013-08-01
 
   - name: PrimoCollect
-    project: Web & SIP
     role: Technical Lead
     technologies:
       - Python
@@ -105,9 +116,8 @@ companies:
     start: !!timestamp 2011-01-01
     end: !!timestamp 2013-02-01
 
-  - name: Freelancer
-    project: Various projects
-    role: Full-Stack Developer
+  - name: Freelancer.com
+    role: Full Stack Developer
     technologies:
       - PHP
       - C#
@@ -120,8 +130,7 @@ companies:
     end: !!timestamp 2012-01-01
 
   - name: Airbites
-    project: Internal social network
-    role: PHP Developer
+    role: Back-End Developer
     technologies:
       - PHP
       - HTML/CSS

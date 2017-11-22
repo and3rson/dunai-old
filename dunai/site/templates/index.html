@@ -4,11 +4,12 @@
 <html>
     <head>
         <title>Andrew Dunai</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=cyrillic" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
         <!--<link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" />-->
         <!--<link rel="stylesheet" type="test/css" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css" />-->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?3" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <body>
@@ -21,19 +22,14 @@
                 </div>
             </div>
         </div>
-        <div class="container" data-on-scroll="bio">
-            {% for bio in cv.bio %}
-                <p>{{ bio|safe }}</p>
-            {% endfor %}
-        </div>
         <div class="companies" data-on-scroll="companies">
             <div class="container">
                 {% for company in cv.companies %}
                 <h2>
-                    <span class="company-role">{{ company.role }}</span> <span class="company-name">@ {{ company.name }}</span> &rsaquo; {{ company.project }}
+                    <span class="company-role">{{ company.role }}</span> <span class="company-name"><span class="hide-on-sm">@</span> {{ company.name }}</span>
                     <span class="company-date">{{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %}</span>
                 </h2>
-                <p>{{ company.description }}</p>
+                <p class="company-descr">{{ company.description }}</p>
                 {% endfor %}
             </div>
         </div>
@@ -50,42 +46,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            var callbacks = {
-                splash: () => { document.body.style.backgroundColor = '#080800'; document.body.style.color = '#000000'; },
-                bio: () => { document.body.style.backgroundColor = '#B6E354'; document.body.style.color = '#080800' },
-                companies: () => { document.body.style.backgroundColor = '#03152A'; document.body.style.color = '#FFFFFF' },
-                <!--contacts: () => { document.body.style.backgroundColor = '#B6E354'; document.body.style.color = '#080800' },-->
-            };
-            var elements = Array.prototype.slice.call(document.querySelectorAll('[data-on-scroll]'));
-            var lastOnScroll = elements[0].getAttribute('data-on-scroll');
-            elements.reverse();
-            console.log(elements);
-            var process = function() {
-                var height = window.innerHeight;
-                var scroll = document.body.scrollTop;
-                var matchingEl = null;
-                elements.forEach(el => {
-                    if (matchingEl !== null) {
-                        return;
-                    }
-                    var top = el.getBoundingClientRect().top;
-                    if (top < height / 2) {
-                        matchingEl = el;
-                    }
-                });
-                if (matchingEl === null) {
-                    matchingEl = elements[0];
-                }
-                var onScroll = matchingEl.getAttribute('data-on-scroll');
-                if (onScroll != lastOnScroll) {
-                    lastOnScroll = onScroll;
-                    callbacks[onScroll]();
-                }
-            };
-            window.addEventListener('scroll', process);
-            process();
-        </script>
     </body>
 </html>
 
