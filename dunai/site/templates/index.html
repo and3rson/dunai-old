@@ -1,5 +1,6 @@
 {% load static %}
 {% load common %}
+{% load thumbnail %}
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +47,7 @@
                 {% for feature in features %}
                     <div class="col">
                         <a href="#" class="feature" data-image-url="{{ feature.photo.url }}">
-                            <div class="cover" style="background-image: url({{ feature.photo.url }})"></div>
+                            <div class="cover" style="background-image: url({% thumbnail feature.photo 300x300 crop %})"></div>
                             <div class="note">{{ feature.comment|safe }}</div>
                         </a>
                     </div>
