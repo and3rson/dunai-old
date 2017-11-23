@@ -3,12 +3,12 @@ companies:
     role: Software Architect
     technologies:
       - Python
+      - Django
       - NodeJS
-      - AMQP
+      - RabbitMQ
       - PostgreSQL
       - MongoDB
       - Service architecture
-      - NodeJS
       - Docker
       - Consul
       - AWS
@@ -20,12 +20,13 @@ companies:
     role: Back-End Architect
     technologies:
       - Python
+      - Django
       - NodeJS
-      - AMQP
+      - RabbitMQ
       - PostgreSQL
       - Microservices
       - Docker
-      - Service discovery & configuration
+      - Consul
       - AWS
     description:
       '"A distributed bulletproof system that provides the next-level messaging platform with sophisticated administration tools built for large enterprises." Planning & creating infrastructure & component architecture from scratch. Developing backend in Python & NodeJS. Automating testing & deployment processes with Docker & AWS. Decoupling components using RabbitMQ, Consul & Redis.'
@@ -36,8 +37,9 @@ companies:
     role: Senior Python Developer
     technologies:
       - Python
-      - JavaScript
-      - Front End
+      - Django
+      - JS
+      - Web
       - PostgreSQL
     description:
       Marketplace for courses as well as one-shot training sessions.
@@ -48,11 +50,13 @@ companies:
     role: Senior Python Developer
     technologies:
       - Python
-      - JavaScript
-      - Front End
+      - Django
+      - Java
+      - Android
+      - JS
+      - Web
       - PostgreSQL
       - Heroku
-      - Java (Android)
     description:
       '"A service that provides centralized access to aggregated data about events, festivals & parties around the globe." Developing Python backend, frontend & Android application.'
     start: !!timestamp 2014-11-01
@@ -62,6 +66,7 @@ companies:
     role: Senior Python Developer
     technologies:
       - Python
+      - Django
       - MySQL
     description:
       Developing backend that processes data from sensors installed on industrial enterprises, in particular - oil factories.
@@ -72,15 +77,17 @@ companies:
     role: Senior Full-Stack Developer
     technologies:
       - Python
+      - Django
+      - Twisted
       - C++
-      - JavaScript
-      - HTML/CSS
-      - Backbone + Handlebars
+      - JS
+      - Web
+      - Backbone
       - Qt
       - Solr
       - PostgreSQL
-      - Mongo
-      - AMQP
+      - MongoDB
+      - RabbitMQ
     description:
       Building a highly available application backend. Wiring up PostgreSQL, Django, Twisted, Solr, RabbitMQ & Mongo.
     start: !!timestamp 2013-08-01
@@ -102,17 +109,18 @@ companies:
     role: Technical Lead
     technologies:
       - Python
+      - Flask
       - GTK
       - Java
       - C++
-      - HTML/CSS
+      - Web
       - JS
       - Qt
       - PostgreSQL
       - MS SQL
       - SIP
     description:
-      Creating backend and frontend for customer area. Automating administration & configuration of 350 internal workspaces used by the support desk employees. Wiring up the SIP (Asterisk) and the internal system which handled over 1,000,000 million phone calls a month.
+      Creating backend and frontend for customer area. Automating administration & configuration of 350 internal workspaces used by the support desk employees. Wiring up the SIP (Asterisk) and the internal system which handled over 1,000,000 phone calls a month.
     start: !!timestamp 2011-01-01
     end: !!timestamp 2013-02-01
 
@@ -122,7 +130,7 @@ companies:
       - PHP
       - C#
       - C++
-      - HTML/CSS
+      - Web
       - JS
     description:
       Completed over 30 projects during this period.
@@ -133,7 +141,7 @@ companies:
     role: Back-End Developer
     technologies:
       - PHP
-      - HTML/CSS
+      - Web
       - JS
       - MySQL
     description:

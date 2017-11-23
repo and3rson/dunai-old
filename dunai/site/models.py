@@ -9,3 +9,8 @@ class Feature(OrderedModel):
     photo = models.ImageField(null=False, blank=False, upload_to='photos')
     comment = models.TextField(null=False, blank=False)
 
+    def __str__(self):
+        return self.comment
+
+    __repr__ = __str__
+

@@ -1,4 +1,5 @@
 {% load static %}
+{% load common %}
 
 <!DOCTYPE html>
 <html>
@@ -6,10 +7,10 @@
         <title>Andrew Dunai</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=cyrillic" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <!--<link rel="stylesheet" type="text/css" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" />-->
-        <!--<link rel="stylesheet" type="test/css" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css" />-->
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?4" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?7" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <body>
@@ -30,20 +31,26 @@
                     <span class="company-date">{{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %}</span>
                 </h2>
                 <p class="company-descr">{{ company.description }}</p>
+                <div class="company-technologies">
+                    {% for technology in company.technologies %}
+                        <span class="technology">
+                            {{ technology|icon }}
+                        </span>
+                    {% endfor %}
+                </div>
                 {% endfor %}
             </div>
         </div>
         <div class="container">
             <div class="row">
                 {% for feature in features %}
-                <div class="col">
-                    <a href="#" class="feature">
-                        <div class="cover" style="background-image: url({{ feature.photo.url }})"></div>
-                        <div class="note">{{ feature.comment|safe }}</div>
-                    </a>
-                    <!--<img src="{{ feature.photo.url }}" class="responsive" />-->
-                    {% endfor %}
-                </div>
+                    <div class="col">
+                        <a href="#" class="feature" data-image-url="{{ feature.photo.url }}">
+                            <div class="cover" style="background-image: url({{ feature.photo.url }})"></div>
+                            <div class="note">{{ feature.comment|safe }}</div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div class="container" --data-on-scroll="contacts">
@@ -59,14 +66,28 @@
                 </div>
             </div>
         </div>
+    <div class="popup">
+        <div class="popup-content">
+        </div>
+    </div>
     <script type="text/javascript">
-        document.querySelector('.feature').addEventListener('click', function(e) {
-            e.preventDefault();
-            if (this.parentNode.getAttribute('class').indexOf('maximized') !== -1) {
-                this.parentNode.setAttribute('class', 'col');
-            } else {
-                Array.prototype.slice.call(document.querySelectorAll('.feature')).forEach(feature => feature.parentNode.setAttribute('class', 'col'));
-                this.parentNode.setAttribute('class', 'col maximized');
+        var popup = document.querySelector('.popup');
+        var popupContent = document.querySelector('.popup .popup-content');
+        Array.prototype.slice.call(document.querySelectorAll('.feature')).forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                var url = this.getAttribute('data-image-url');
+                e.preventDefault();
+                popup.setAttribute('class', 'popup visible');
+                popupContent.style.backgroundImage = 'url(' + url + ')';
+            });
+        });
+        var hidePopup = function() {
+            popup.setAttribute('class', 'popup');
+        };
+        popup.addEventListener('click', hidePopup);
+        window.addEventListener('keydown', function(e) {
+            if (e.keyCode == 27 || e.which == 27) {
+                hidePopup();
             }
         });
     </script>

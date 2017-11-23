@@ -1,7 +1,4 @@
 version: '2.1'
-volumes:
-    static:
-    media:
 services:
     app:
         image: dunai
@@ -22,8 +19,10 @@ services:
         links:
             - postgres
         volumes:
-            - static:/root/dunai/static
-            - media:/root/dunai/media
+            - ../../static:/root/dunai/static
+            - ../../media:/root/dunai/media
+        ports:
+            - 8000:8000
         networks:
             main:
                 aliases:
@@ -34,22 +33,24 @@ services:
             POSTGRES_DB: dunai
             POSTGRES_USER: dunai
             POSTGRES_PASSWORD: dunai
+        ports:
+            - 5432:5432
         networks:
             main:
                 aliases:
                     - postgres
-    nginx:
-        image: nginx
-        ports:
-            - 80:80
-        volumes:
-            - ./nginx.conf:/etc/nginx/nginx.conf:ro
-        volumes_from:
-            - app:ro
-        networks:
-            main:
-                aliases:
-                    - nginx
+    #nginx:
+    #    image: nginx
+    #    ports:
+    #        - 80:80
+    #    volumes:
+    #        - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    #    volumes_from:
+    #        - app:ro
+    #    networks:
+    #        main:
+    #            aliases:
+    #                - nginx
 networks:
     main:
 

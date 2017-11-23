@@ -75,15 +75,21 @@ WSGI_APPLICATION = 'dunai.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+DB_HOST = os.getenv('DB_HOST', None)
+if not DB_HOST:
+    DB_HOST = 'postgres'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'postgres',
+        'HOST': DB_HOST,
         'NAME': 'dunai',
         'USER': 'dunai',
         'PASSWORD': 'dunai'
     }
 }
+
+print('PostgreSQL host:', DB_HOST)
 
 
 # Password validation
