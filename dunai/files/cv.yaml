@@ -26,6 +26,7 @@ companies:
       - PostgreSQL
       - Microservices
       - Docker
+      - Redis
       - Consul
       - AWS
     description:

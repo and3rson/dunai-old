@@ -19,10 +19,10 @@
             <div class="splash">
                 <div class="splash-inside" data-on-scroll="splash">
                     <div class="container">
-                        <div>
-                            <h1 class="a">Andrew</h1>
-                            <h1 class="b">Dunai</h1>
-                            <h2 class="sub">I make things work.</h2>
+                        <div class="header">
+                            <h1 class="headline">Andrew</h1>
+                            <h1 class="headline impact">Dunai</h1>
+                            <h2 class="message">I do everything.</h2>
                         </div>
                     </div>
                 </div>
@@ -59,14 +59,23 @@
             </div>
             <div class="container" --data-on-scroll="contacts">
                 <div class="contacts">
-                    <div class="contact">
-                        My LinkedIn: <a href="https://www.linkedin.com/in/dunai/">linkedin.com/in/dunai/</a>
+                    <div class="contact linkedin">
+                        <img src="{% static 'images/linkedin.png' %}" class="social" />
+                        <span>
+                            <a href="https://www.linkedin.com/in/dunai/">linkedin.com/in/dunai/</a>
+                        </span>
                     </div>
-                    <div class="contact">
-                        My Email: <a href="mailto:a@dun.ai">a@dun.ai</a>
+                    <div class="contact email">
+                        <img src="{% static 'images/email.png' %}" class="social" />
+                        <span>
+                            <a href="mailto:a@dun.ai">a@dun.ai</a>
+                        </span>
                     </div>
-                    <div class="contact">
-                        My Phone: <a href="tel:+380633700097">+380633700097</a>
+                    <div class="contact phone">
+                        <img src="{% static 'images/phone.png' %}" class="social" />
+                        <span>
+                            <a href="tel:+380633700097">+380633700097</a>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -79,7 +88,7 @@
         </div>
     </a>
     <script type="text/javascript">
-        (function() {
+        window.addEventListener('load', function() {
             // Misc helpers
             window.$ = selector => document.querySelector(selector);
             window.$$ = selector => Array.prototype.slice.call(document.querySelectorAll(selector));
@@ -123,8 +132,16 @@
             ).forEach(
                 el => el.parentNode.removeChild(el)
             );
-        })();
+            tippy('[title]', {
+                animation: 'perspective',
+                duration: 90,
+                size: 'large',
+                theme: 'molokai',
+                performance: true
+            });
+        });
     </script>
+    <script src="https://unpkg.com/tippy.js@beta/dist/tippy.all.min.js"></script>
     </body>
 </html>
 

@@ -25,6 +25,7 @@ ICONS = {
     'linux administration': 'linux-plain',
     'heroku': 'heroku-plain colored',
     'android': 'android-plain colored',
+    'redis': 'redis-plain colored',
     'default': 'linux-plain',
 }
 
@@ -47,9 +48,9 @@ SVG_ICONS = {
 @register.filter
 def icon(t):
     img_pat = \
-        '<img src="{}" class="icon" /><span class="name" style="color: {}">' + t + '</span>'
+        '<img src="{}" class="icon" title="' + t + '" />'
     icon_pat = \
-        '<i class="devicon-{} icon"><span class="name">' + t + '</span></i>'
+        '<i class="devicon-{} icon" title="' + t + '"></i>'
     t = t.lower()
     result = None
 

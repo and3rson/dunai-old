@@ -65,26 +65,28 @@ h3 {
     font-size: 1.8rem;
 }
 
-h1.a {
+.header {
+    text-align: center;
+}
+
+.header h1.headline {
+    margin: 0;
     font-size: 6rem;
     line-height: 100%;
-    margin-bottom: 0;
     font-weight: 100;
     color: var(--blue-gray);
 }
 
-h1.b {
-    margin: 0;
-    line-height: 100%;
+.header h1.headline.impact {
     font-size: 7.5rem;
     letter-spacing: 0.7rem;
-    font-weight: 100;
+    color: var(--white);
 }
 
-h2.sub {
-    font-size: 2.4rem;
+.header h2.message {
+    font-size: 3rem;
     line-height: 100%;
-    margin-top: 1rem;
+    margin: 1rem 0 0;
     font-weight: 100;
     color: var(--green);
 }
@@ -110,6 +112,7 @@ h2.sub {
     background-image: url(/static/images/me3.jpg);
     background-position: bottom;
     background-size: cover;
+    min-height: 80vh;
     /*background: #212;*/
     /*background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));*/
 }
@@ -151,27 +154,30 @@ p {
 .company-technologies {
     padding: 0 0 2rem 4rem;
     cursor: default;
+    font-size: 0;
 }
 
 .company-technologies .technology {
-    padding: 0 0.5rem 0.5rem 0;
     display: inline-block;
     vertical-align: middle;
     font-size: 0;
     white-space: nowrap;
+    font-size: 1rem;
 }
 
 .company-technologies .technology i.icon {
     /*color: var(--magenta);*/
-    font-size: 1rem;
+    padding: 0.5rem;
+    font-size: 1.6rem;
     display: inline-block;
     vertical-align: middle;
 }
 
 .company-technologies .technology img.icon {
     /*color: var(--magenta);*/
+    padding: 0.5rem;
     width: auto;
-    height: 1rem;
+    height: 2.5rem;
     display: inline-block;
     vertical-align: middle;
 }
@@ -202,8 +208,28 @@ p {
     margin-bottom: 1rem;
 }
 
+.contacts .contact img, .contacts .contact span {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.contacts .contact span {
+}
+
 .contacts .contact a:link, .contacts .contact a:hover, .contacts .contact a:active, .contacts .contact a:visited {
     color: var(--magenta);
+}
+
+.contacts .contact.linkedin img {
+    background-color: #0274B3;
+}
+
+.contacts .contact.email img {
+    background-color: #DF0024;
+}
+
+.contacts .contact.phone img {
+    background-color: #42B41E;
 }
 
 .row {
@@ -313,6 +339,11 @@ img.responsive {
     height: auto;
 }
 
+.social {
+    width: 5rem;
+    height: 5rem;
+}
+
 .nohl {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -322,6 +353,19 @@ img.responsive {
     user-select: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
+}
+
+.tippy-backdrop {
+    background: var(--green) !important;
+}
+
+.tippy-tooltip .tippy-content {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Open Sans;
+    color: var(--black);
 }
 
 :focus {
