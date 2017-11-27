@@ -136,12 +136,20 @@ p {
     /*color: var(--off-white);*/
 }
 
+.company-icon {
+    vertical-align: center;
+    width: 2rem;
+    height: 2rem;
+}
+
 .company-role {
+    vertical-align: center;
     color: var(--magenta);
     font-weight: 300;
 }
 
 .company-name {
+    vertical-align: center;
     color: var(--cyan);
     font-weight: 300;
 }
@@ -376,7 +384,7 @@ img.responsive {
     html, body {
         font-size: 10px;
     }
-    .company-role, .company-name {
+    .company-name {
         display: block;
     }
     .company-date {

@@ -1,5 +1,6 @@
 companies:
   - name: T1DExchange (UnitIO)
+    icon: images/t1dexchange.png
     role: Software Architect
     technologies:
       - Python
@@ -17,6 +18,7 @@ companies:
     start: !!timestamp 2016-06-01
 
   - name: Red e App
+    icon: images/redeapp.png
     role: Back-End Architect
     technologies:
       - Python
@@ -35,6 +37,7 @@ companies:
     end: !!timestamp 2017-06-01
 
   - name: Kultivo.com
+    icon: images/kultivo.png
     role: Senior Python Developer
     technologies:
       - Python
@@ -48,6 +51,7 @@ companies:
     end: !!timestamp 2016-01-01
 
   - name: N1ght.com
+    icon: images/n1ght.png
     role: Senior Python Developer
     technologies:
       - Python
@@ -64,6 +68,7 @@ companies:
     end: !!timestamp 2015-07-01
 
   - name: OspreyData, Inc.
+    icon: images/ospreydata.png
     role: Senior Python Developer
     technologies:
       - Python
@@ -75,6 +80,7 @@ companies:
     end: !!timestamp 2014-10-01
 
   - name: qBeats, Inc.
+    icon: images/qbeats.png
     role: Senior Full-Stack Developer
     technologies:
       - Python
@@ -95,6 +101,7 @@ companies:
     end: !!timestamp 2014-06-01
 
   - name: Axiomatics
+    icon: images/axiomatics.png
     role: Senior Webmaster
     technologies:
       - PHP
@@ -107,6 +114,7 @@ companies:
     end: !!timestamp 2013-08-01
 
   - name: PrimoCollect
+    icon: images/primocollect.png
     role: Technical Lead
     technologies:
       - Python
@@ -126,6 +134,7 @@ companies:
     end: !!timestamp 2013-02-01
 
   - name: Freelancer.com
+    icon: images/freelancer.png
     role: Full Stack Developer
     technologies:
       - PHP
@@ -139,6 +148,7 @@ companies:
     end: !!timestamp 2012-01-01
 
   - name: Airbites
+    icon: images/airbites.png
     role: Back-End Developer
     technologies:
       - PHP
@@ -151,11 +161,13 @@ companies:
     end: !!timestamp 2007-11-01
 
 misc:
-  - I use PyCharm, Sublime Text 3 & nano as development environments.
+  - I use Vim & PyCharm as development environments.
   - I use Python & NodeJS most of the time.
-  - I believe that keeping low complexity of large project's components is the key to maintainable system.
+  - I love tiling WMs.
+  - I believe that keeping low complexity of large project's components and respecting the law of Demeter is the key to maintainable system.
   - I love shaders & 3D graphics.
   - I love modding for HL, CS & Dota.
   - I've spent over 9000 hours in Unreal Tournament 1999, Hitman 1-3, Half-Life (& mods), CS:GO, Hotline Miami, Dota & C&C.
   - I used to be Steam & Dota 2 translator and co-organizer & broadcaster of West-Ukrainian Dota 2 tournaments
   - I used to develop cheats for CS:GO (own wallhack, modified esp hack, own flashbang hack), although I've never used them in ranked games.
+
