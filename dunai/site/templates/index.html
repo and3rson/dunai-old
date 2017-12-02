@@ -1,41 +1,40 @@
-{% load static %}
-{% load common %}
-{% load thumbnail %}
-
-<!DOCTYPE html>
-<html>
+{% load static %}{% load common %}{% load thumbnail %}<!DOCTYPE html>
+<html lang="en">
     <head>
         <title>Andrew Dunai</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=cyrillic" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?10" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?11" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
+        <meta name="theme-color" content="#080800" />
+        <meta name="msapplication-navbutton-color" content="#080800" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#080800" />
     </head>
     <body>
         <div class="main">
             <div class="splash">
-                <div class="splash-inside" data-on-scroll="splash">
+                <div class="splash-inside">
                     <div class="container">
                         <div class="header">
-                            <h1 class="headline">Andrew</h1>
-                            <h1 class="headline impact">Dunai</h1>
+                            <h1 class="headline">Andrew<span class="impact">Dunai</span></h1>
                             <h2 class="message">I do everything.</h2>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="companies" data-on-scroll="companies">
+            <div class="companies">
                 <div class="container">
                     {% for company in cv.companies %}
-                    <h2>
-                        <img class="company-icon" src="{% static company.icon %}" />
+                    <h3>
+                        <img class="company-icon" src="{% static company.icon %}" alt="{{ company.name }} icon" />
                         <span class="company-role">{{ company.role }}</span>
                         <span class="company-name"><span class="hide-on-sm">@</span> {{ company.name }}</span>
                         <span class="company-date">{{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %}</span>
-                    </h2>
+                    </h3>
                     <p class="company-descr">{{ company.description }}</p>
                     <div class="company-technologies">
                         {% for technology in company.technologies %}
@@ -59,22 +58,22 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="container" --data-on-scroll="contacts">
+            <div class="container">
                 <div class="contacts">
                     <div class="contact linkedin">
-                        <img src="{% static 'images/linkedin.png' %}" class="social" />
+                        <img src="{% static 'images/linkedin.png' %}" alt="Linkedin" class="social" />
                         <span>
                             <a href="https://www.linkedin.com/in/dunai/">linkedin.com/in/dunai/</a>
                         </span>
                     </div>
                     <div class="contact email">
-                        <img src="{% static 'images/email.png' %}" class="social" />
+                        <img src="{% static 'images/email.png' %}" alt="Email" class="social" />
                         <span>
                             <a href="mailto:a@dun.ai">a@dun.ai</a>
                         </span>
                     </div>
                     <div class="contact phone">
-                        <img src="{% static 'images/phone.png' %}" class="social" />
+                        <img src="{% static 'images/phone.png' %}" alt="Phone" class="social" />
                         <span>
                             <a href="tel:+380633700097">+380633700097</a>
                         </span>
@@ -89,7 +88,7 @@
             <span data-if-desktop>Click</span><span data-if-mobile>Tap</span> anywhere to close.
         </div>
     </a>
-    <script type="text/javascript">
+    <script>
         window.addEventListener('load', function() {
             // Misc helpers
             window.$ = selector => document.querySelector(selector);

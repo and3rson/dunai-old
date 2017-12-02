@@ -48,7 +48,7 @@ SVG_ICONS = {
 @register.filter
 def icon(t):
     img_pat = \
-        '<img src="{}" class="icon" title="' + t + '" />'
+        '<img src="{}" class="icon" title="' + t + '" alt="' + t + '" />'
     icon_pat = \
         '<i class="devicon-{} icon" title="' + t + '"></i>'
     t = t.lower()
