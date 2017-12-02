@@ -32,7 +32,7 @@ ICONS = {
 SVG_ICONS = {
     'qt': (static('svg/qt.svg'), '#7EC040'),
     'ms sql': (static('svg/sql-server.svg'), '#FFFFFF'),
-    'sip': (static('svg/asterisk.png'), '#EE610D'),
+    'sip': (static('svg/asterisk.svg'), '#EE610D'),
     'flask': (static('svg/flask.svg'), '#FFFFFF'),
     'gtk': (static('svg/gtk.svg'), '#7FE719'),
     'solr': (static('svg/solr.svg'), '#D74125'),

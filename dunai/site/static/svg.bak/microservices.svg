@@ -4,13 +4,13 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve">
 <g xmlns:svg="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/">
-	<circle fill="#B6E354" cx="200" cy="200" r="200"/>
+	<circle fill="#A51C88" cx="200" cy="200" r="200"/>
 </g>
 <g id="Layer_2">
 </g>
 <g id="Layer_3">
 	<g id="layer1" transform="translate(-256.6798,-531.7963)">
-		<path id="text5540" fill="#B6E354" d="M491.731,765.946c-23.566,25.261-44.075,37.892-61.522,37.892
+		<path id="text5540" fill="#FFFFFF" d="M491.731,765.946c-23.566,25.261-44.075,37.892-61.522,37.892
 			c-11.197,0-21.614-4.297-31.25-12.892v10.353c0,11.979,1.822,24.022,5.469,36.133c4.167,13.41,6.25,22.266,6.25,26.562
 			c0,5.988-1.888,10.938-5.664,14.844c-3.775,3.906-8.463,5.858-14.062,5.858c-5.729,0-10.285-2.278-13.672-6.836
 			c-3.385-4.558-5.078-10.026-5.078-16.405c0-4.688,1.693-13.151,5.078-25.392c3.906-13.542,5.859-26.692,5.859-39.453V619.461

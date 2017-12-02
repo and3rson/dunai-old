@@ -181,6 +181,7 @@ p {
     font-size: 1.6rem;
     display: inline-block;
     vertical-align: middle;
+    color: var(--green) !important;
 }
 
 .company-technologies .technology img.icon {
@@ -367,6 +368,10 @@ img.responsive {
 
 .tippy-backdrop {
     background: var(--green) !important;
+}
+
+.tippy-tooltip {
+    border-radius: 0;
 }
 
 .tippy-tooltip .tippy-content {
