@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?12" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?14" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
@@ -17,14 +17,21 @@
     <body>
         <div class="main">
             <div class="splash">
+                <div class="splash-bg">
+                </div>
                 <div class="splash-inside">
                     <div class="container">
                         <div class="header">
-                            <h1 class="headline">Andrew<span class="impact">Dunai</span></h1>
-                            <h2 class="message">I do everything.</h2>
+                            <h1 class="headline">Andrew
+                                <div class="impact">
+                                    <span>D</span><span>u</span><span>n</span><span>a</span><span>i</span>
+                                </div></h1>
+                            <h2 class="message">Show me what you've got!&trade;</h2>
                         </div>
                     </div>
                 </div>
+                <!--<div class="splash-slash">-->
+                <!--</div>-->
             </div>
             <div class="companies">
                 <div class="container">
@@ -103,17 +110,6 @@
             var popup = $('.popup');
             var popupContent = $('.popup .popup-content');
             var stopPropagation = e => e.stopPropagation();
-            window.addEventListener('scroll', e => {
-                var factor = document.body.scrollTop / (document.body.clientHeight - window.innerHeight);
-                /* document.body.style.backgroundColor = 'rgba('
-                    + Math.round(clamp(0, 1, 8, 0, factor))
-                    + ', '
-                    + Math.round(clamp(0, 1, 8, 0, factor))
-                    + ', '
-                    + Math.round(clamp(0, 1, 0, 16, factor))
-                    + ', 1)'
-                ; */
-            });
             $$('.feature').forEach(el => {
                 el.addEventListener('click', e => {
                     var url = e.currentTarget.getAttribute('data-image-url');
@@ -133,6 +129,8 @@
             ).forEach(
                 el => el.parentNode.removeChild(el)
             );
+
+            // Tooltips
             tippy('[title]', {
                 animation: 'perspective',
                 duration: 90,
@@ -140,6 +138,22 @@
                 theme: 'molokai',
                 performance: true
             });
+
+            // Blur
+            /*
+            var splash = $('.splash');
+            var prevBlurValue = 0;
+            window.addEventListener('scroll', e => {
+                // var factor = document.documentElement.scrollTop / (document.body.clientHeight - window.innerHeight);
+                var factor = document.documentElement.scrollTop / splash.clientHeight;
+                var blurValue = Math.round(factor * 40);
+                if (prevBlurValue != blurValue) {
+                    splash.style.filter = 'blur(' + blurValue + 'px)';
+                    prevBlurValue = blurValue;
+                    console.log('b');
+                }
+            });
+            */
         });
     </script>
     <script src="https://unpkg.com/tippy.js@beta/dist/tippy.all.min.js"></script>
