@@ -171,7 +171,7 @@ h3 {
     left: 0;
     right: 0;
     z-index: 1;
-    background-image: url(/static/images/me3.jpg);
+    background-image: url(/static/images/me5-blurred.jpg);
     background-position: bottom;
     background-size: cover;
     /*filter: blur(10px);*/
@@ -184,7 +184,7 @@ h3 {
     left: 0;
     right: 0;
     z-index: 2;
-    background-color: rgba(8, 8, 0, 0.86);
+    background-color: rgba(8, 8, 0, 0.91);
     display: flex;
     align-items: center;
 }
@@ -194,8 +194,11 @@ h3 {
     bottom: 0;
     left: 0;
     right: 0;
-    border-width: 200px 200px 0 0;
-    border-color: #007bff transparent transparent transparent;
+    z-index: 3;
+    background: transparent;
+    border-style: solid;
+    border-color: transparent transparent var(--black) transparent;
+    border-width: 0 100vw 10vw 0;
 }
 
 p {
@@ -229,7 +232,7 @@ p {
 }
 
 .company-date {
-    color: var(--light-blue);
+    color: var(--green);
     float: right;
 }
 
@@ -253,7 +256,7 @@ p {
     font-size: 1.6rem;
     display: inline-block;
     vertical-align: middle;
-    color: var(--green) !important;
+    color: var(--white) !important;
 }
 
 .company-technologies .technology img.icon {
