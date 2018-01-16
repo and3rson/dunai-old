@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?15" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?16" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
@@ -59,7 +59,10 @@
                         <div class="col">
                             <a href="#" class="feature nohl" data-image-url="{{ feature.photo.url }}">
                                 <div class="cover" style="background-image: url({% thumbnail feature.photo 300x300 crop %})"></div>
-                                <div class="note">{{ feature.comment|safe }}</div>
+                                <div class="note">
+                                    <div>{{ feature.comment|safe }}</div>
+                                    <div class="location">@ {{ feature.location|safe }}</div>
+                                </div>
                             </a>
                         </div>
                     {% endfor %}

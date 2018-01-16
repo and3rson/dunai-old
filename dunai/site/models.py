@@ -7,6 +7,7 @@ class Feature(OrderedModel):
         pass
 
     photo = models.ImageField(null=False, blank=False, upload_to='photos')
+    location = models.TextField(null=True, blank=True)
     comment = models.TextField(null=False, blank=False)
 
     def __str__(self):
