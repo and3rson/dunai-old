@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?16" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?17" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
@@ -17,6 +17,8 @@
     <body>
         <div class="main">
             <div class="splash">
+                <div class="splash-bg visible" style="background-image: url(/static/images/me5-blurred.jpg)">
+                </div>
                 <div class="splash-bg">
                 </div>
                 <div class="splash-inside">
@@ -57,7 +59,7 @@
                 <div class="row">
                     {% for feature in features %}
                         <div class="col">
-                            <a href="#" class="feature nohl" data-image-url="{{ feature.photo.url }}">
+                            <a href="#" class="feature nohl" data-image-url="{{ feature.photo.url }}" data-thumbnail-url="{% thumbnail feature.photo 300x300 crop %}">
                                 <div class="cover" style="background-image: url({% thumbnail feature.photo 300x300 crop %})"></div>
                                 <div class="note">
                                     <div>{{ feature.comment|safe }}</div>
@@ -142,21 +144,35 @@
                 performance: true
             });
 
-            // Blur
-            /*
-            var splash = $('.splash');
-            var prevBlurValue = 0;
-            window.addEventListener('scroll', e => {
-                // var factor = document.documentElement.scrollTop / (document.body.clientHeight - window.innerHeight);
-                var factor = document.documentElement.scrollTop / splash.clientHeight;
-                var blurValue = Math.round(factor * 40);
-                if (prevBlurValue != blurValue) {
-                    splash.style.filter = 'blur(' + blurValue + 'px)';
-                    prevBlurValue = blurValue;
-                    console.log('b');
-                }
+            const urls = $$('.feature').map(
+                feature => feature.getAttribute('data-thumbnail-url')
+            ).filter(
+                url => url
+            );
+            var [backBuffer, frontBuffer] = $$('.splash-bg');
+            const fadeIn = () => {
+                frontBuffer.style.backgroundImage = 'url(' + urls[0] + ')';
+                frontBuffer.setAttribute('class', 'splash-bg visible');
+                urls.push(urls.shift());
+                window.setTimeout(fadeOut, 150);
+            };
+            const fadeOut = () => {
+                backBuffer.style.backgroundImage = 'url(' + urls[0] + ')';
+                frontBuffer.setAttribute('class', 'splash-bg');
+                urls.push(urls.shift());
+                window.setTimeout(fadeIn, 150);
+            };
+            var loadCounter = urls.length;
+            urls.forEach(url => {
+                const image = new Image();
+                image.src = url;
+                image.onload = () => {
+                    loadCounter--;
+                    if (!loadCounter) {
+                        fadeIn();
+                    }
+                };
             });
-            */
         });
     </script>
     <script src="https://unpkg.com/tippy.js@beta/dist/tippy.all.min.js"></script>
