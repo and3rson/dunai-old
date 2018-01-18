@@ -38,7 +38,7 @@ companies:
 
   - name: Kultivo.com
     icon: images/kultivo.png
-    role: Senior Python Developer
+    role: Senior Python Dev
     technologies:
       - Python
       - Django
@@ -52,7 +52,7 @@ companies:
 
   - name: N1ght.com
     icon: images/n1ght.png
-    role: Senior Python Developer
+    role: Senior Python Dev
     technologies:
       - Python
       - Django
@@ -69,7 +69,7 @@ companies:
 
   - name: OspreyData, Inc.
     icon: images/ospreydata.png
-    role: Senior Python Developer
+    role: Senior Python Dev
     technologies:
       - Python
       - Django
@@ -81,7 +81,7 @@ companies:
 
   - name: qBeats, Inc.
     icon: images/qbeats.png
-    role: Senior Full-Stack Developer
+    role: Senior Full-Stack Dev
     technologies:
       - Python
       - Django
@@ -134,8 +134,8 @@ companies:
     end: !!timestamp 2013-02-01
 
   - name: Freelancer.com
-    icon: images/freelancer.png
-    role: Full Stack Developer
+    icon: images/freelancer2.png
+    role: Full Stack Dev
     technologies:
       - PHP
       - C#
@@ -149,7 +149,7 @@ companies:
 
   - name: Airbites
     icon: images/airbites.png
-    role: Back-End Developer
+    role: Back-End Dev
     technologies:
       - PHP
       - Web

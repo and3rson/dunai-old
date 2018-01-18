@@ -4,7 +4,7 @@ import yaml
 from django.shortcuts import render
 from django.conf import settings
 
-from .models import Feature
+from .models import Feature, Project
 
 
 def index(request):
@@ -13,6 +13,6 @@ def index(request):
         cv = yaml.load(f.read())
     return render(request, 'index.html', dict(
         cv=cv,
-        features=Feature.objects.all()
+        features=Feature.objects.all(),
+        projects=Project.objects.all()
     ))
-

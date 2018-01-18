@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?17" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?18" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
@@ -17,7 +17,7 @@
     <body>
         <div class="main">
             <div class="splash">
-                <div class="splash-bg visible" style="background-image: url(/static/images/me5-blurred.jpg)">
+                <div class="splash-bg visible" style="background-image: url(/static/images/me5-blurred2.jpg)">
                 </div>
                 <div class="splash-bg">
                 </div>
@@ -37,8 +37,9 @@
             </div>
             <div class="companies">
                 <div class="container">
+                    <h1 class="section-head">Experience</h1>
                     {% for company in cv.companies %}
-                    <h3>
+                    <h3 class="company-header">
                         <img class="company-icon" src="{% static company.icon %}" alt="{{ company.name }} icon" />
                         <span class="company-role">{{ company.role }}</span>
                         <span class="company-name"><span class="hide-on-sm">@</span> {{ company.name }}</span>
@@ -55,23 +56,41 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
-                    {% for feature in features %}
-                        <div class="col">
-                            <a href="#" class="feature nohl" data-image-url="{{ feature.photo.url }}" data-thumbnail-url="{% thumbnail feature.photo 300x300 crop %}">
-                                <div class="cover" style="background-image: url({% thumbnail feature.photo 300x300 crop %})"></div>
-                                <div class="note">
-                                    <div>{{ feature.comment|safe }}</div>
-                                    <div class="location">@ {{ feature.location|safe }}</div>
-                                </div>
-                            </a>
-                        </div>
-                    {% endfor %}
+            <!--<div class="projects">-->
+            <!--    <div class="slash-ctn">-->
+            <!--        <div class="slash projects-slash"></div>-->
+            <!--    </div>-->
+            <!--    <div class="container">-->
+            <!--        <h1 class="section-head projects-head">Projects</h1>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <div class="features">
+                <div class="slash-ctn">
+                    <div class="slash features-slash"></div>
+                </div>
+                <div class="container">
+                    <h1 class="section-head features-head">Spare time</h1>
+                    <div class="row">
+                        {% for feature in features %}
+                            <div class="col">
+                                <a href="#" class="feature nohl" data-image-url="{{ feature.photo.url }}" data-thumbnail-url="{% thumbnail feature.photo 300x300 crop %}">
+                                    <div class="cover" style="background-image: url({% thumbnail feature.photo 300x300 crop %})"></div>
+                                    <div class="note">
+                                        <div>{{ feature.comment|safe }}</div>
+                                        <div class="location">@ {{ feature.location|safe }}</div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="contacts">
+            <div class="contacts">
+                <div class="slash-ctn">
+                    <div class="slash contacts-slash"></div>
+                </div>
+                <div class="container">
+                    <h1 class="section-head contacts-head">Contacts</h1>
                     <div class="contact linkedin">
                         <img src="{% static 'images/linkedin.png' %}" alt="Linkedin" class="social" />
                         <span>
@@ -93,89 +112,89 @@
                 </div>
             </div>
         </div>
-    <a href="#" class="popup nohl">
-        <div class="popup-content nohl">
-        </div>
-        <div class="popup-note">
-            <span data-if-desktop>Click</span><span data-if-mobile>Tap</span> anywhere to close.
-        </div>
-    </a>
-    <script>
-        window.addEventListener('load', function() {
-            // Misc helpers
-            window.$ = selector => document.querySelector(selector);
-            window.$$ = selector => Array.prototype.slice.call(document.querySelectorAll(selector));
-            window.isMobile = 'ontouchstart' in window;
-            window.clamp = (smin, smax, dmin, dmax, value) => {
-                var k = (value - smin) / (smax - smin);
-                return dmin + (dmax - dmin) * k;
-            };
+        <a href="#" class="popup nohl">
+            <div class="popup-content nohl">
+            </div>
+            <div class="popup-note">
+                <span data-if-desktop>Click</span><span data-if-mobile>Tap</span> anywhere to close.
+            </div>
+        </a>
+        <script>
+            window.addEventListener('load', function() {
+                // Misc helpers
+                window.$ = selector => document.querySelector(selector);
+                window.$$ = selector => Array.prototype.slice.call(document.querySelectorAll(selector));
+                window.isMobile = 'ontouchstart' in window;
+                window.clamp = (smin, smax, dmin, dmax, value) => {
+                    var k = (value - smin) / (smax - smin);
+                    return dmin + (dmax - dmin) * k;
+                };
 
-            // Pop-up
-            var popup = $('.popup');
-            var popupContent = $('.popup .popup-content');
-            var stopPropagation = e => e.stopPropagation();
-            $$('.feature').forEach(el => {
-                el.addEventListener('click', e => {
-                    var url = e.currentTarget.getAttribute('data-image-url');
+                // Pop-up
+                var popup = $('.popup');
+                var popupContent = $('.popup .popup-content');
+                var stopPropagation = e => e.stopPropagation();
+                $$('.feature').forEach(el => {
+                    el.addEventListener('click', e => {
+                        var url = e.currentTarget.getAttribute('data-image-url');
+                        e.preventDefault();
+                        popup.setAttribute('class', 'popup visible');
+                        popupContent.style.backgroundImage = 'url(' + url + ')';
+                    });
+                });
+                var hidePopup = e => {
+                    popup.setAttribute('class', 'popup');
                     e.preventDefault();
-                    popup.setAttribute('class', 'popup visible');
-                    popupContent.style.backgroundImage = 'url(' + url + ')';
+                };
+                popup.addEventListener('click', hidePopup);
+                window.addEventListener('keydown', e => (e.keyCode == 27 || e.which == 27) ? hidePopup() : 0);
+                $$('[data-if-desktop],[data-if-mobile]').filter(
+                    el => el.hasAttribute(isMobile ? 'data-if-desktop' : 'data-if-mobile')
+                ).forEach(
+                    el => el.parentNode.removeChild(el)
+                );
+
+                // Tooltips
+                tippy('[title]', {
+                    animation: 'perspective',
+                    duration: 90,
+                    size: 'large',
+                    theme: 'molokai',
+                    performance: true
+                });
+
+                const urls = $$('.feature').map(
+                    feature => feature.getAttribute('data-thumbnail-url')
+                ).filter(
+                    url => url
+                );
+                var [backBuffer, frontBuffer] = $$('.splash-bg');
+                const fadeIn = () => {
+                    frontBuffer.style.backgroundImage = 'url(' + urls[0] + ')';
+                    frontBuffer.setAttribute('class', 'splash-bg visible');
+                    urls.push(urls.shift());
+                    window.setTimeout(fadeOut, 150);
+                };
+                const fadeOut = () => {
+                    backBuffer.style.backgroundImage = 'url(' + urls[0] + ')';
+                    frontBuffer.setAttribute('class', 'splash-bg');
+                    urls.push(urls.shift());
+                    window.setTimeout(fadeIn, 150);
+                };
+                var loadCounter = urls.length;
+                urls.forEach(url => {
+                    const image = new Image();
+                    image.src = url;
+                    image.onload = () => {
+                        loadCounter--;
+                        if (!loadCounter) {
+                            fadeIn();
+                        }
+                    };
                 });
             });
-            var hidePopup = e => {
-                popup.setAttribute('class', 'popup');
-                e.preventDefault();
-            };
-            popup.addEventListener('click', hidePopup);
-            window.addEventListener('keydown', e => (e.keyCode == 27 || e.which == 27) ? hidePopup() : 0);
-            $$('[data-if-desktop],[data-if-mobile]').filter(
-                el => el.hasAttribute(isMobile ? 'data-if-desktop' : 'data-if-mobile')
-            ).forEach(
-                el => el.parentNode.removeChild(el)
-            );
-
-            // Tooltips
-            tippy('[title]', {
-                animation: 'perspective',
-                duration: 90,
-                size: 'large',
-                theme: 'molokai',
-                performance: true
-            });
-
-            const urls = $$('.feature').map(
-                feature => feature.getAttribute('data-thumbnail-url')
-            ).filter(
-                url => url
-            );
-            var [backBuffer, frontBuffer] = $$('.splash-bg');
-            const fadeIn = () => {
-                frontBuffer.style.backgroundImage = 'url(' + urls[0] + ')';
-                frontBuffer.setAttribute('class', 'splash-bg visible');
-                urls.push(urls.shift());
-                window.setTimeout(fadeOut, 150);
-            };
-            const fadeOut = () => {
-                backBuffer.style.backgroundImage = 'url(' + urls[0] + ')';
-                frontBuffer.setAttribute('class', 'splash-bg');
-                urls.push(urls.shift());
-                window.setTimeout(fadeIn, 150);
-            };
-            var loadCounter = urls.length;
-            urls.forEach(url => {
-                const image = new Image();
-                image.src = url;
-                image.onload = () => {
-                    loadCounter--;
-                    if (!loadCounter) {
-                        fadeIn();
-                    }
-                };
-            });
-        });
-    </script>
-    <script src="https://unpkg.com/tippy.js@beta/dist/tippy.all.min.js"></script>
+        </script>
+        <script src="https://unpkg.com/tippy.js@beta/dist/tippy.all.min.js"></script>
     </body>
 </html>
 

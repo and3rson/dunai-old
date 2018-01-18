@@ -11,7 +11,20 @@ class Feature(OrderedModel):
     comment = models.TextField(null=False, blank=False)
 
     def __str__(self):
-        return self.comment
+        return u'{} ({})'.format(self.comment, self.location)
 
     __repr__ = __str__
 
+
+class Project(OrderedModel):
+    class Meta(OrderedModel.Meta):
+        pass
+
+    title = models.TextField(null=False, blank=False)
+    link = models.URLField(null=False, blank=False)
+    description = models.TextField(null=False, blank=False)
+
+    def __str__(self):
+        return u'{} ({})'.format(self.title, self.link)
+
+    __repr__ = __str__
