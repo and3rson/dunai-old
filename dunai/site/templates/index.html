@@ -72,14 +72,16 @@
                 </div>
                 <div class="container">
                     <h1 class="section-head projects-head">Public contributions</h1>
-                    {% for project in projects %}
-                    <div class="project">
-                        <h3 class="project-header"><a href="{{ project.link }}">{{ project.title }}</a> &mdash; ★ {{ project.stars }}</h3>
-                        <div class="project-description">
-                            {{ project.description }}
+                    <div class="row">
+                        {% for project in projects %}
+                        <div class="project col">
+                            <h3 class="project-header"><a href="{{ project.link }}">{{ project.title }}</a> &mdash; ★ {{ project.stars }}</h3>
+                            <div class="project-description">
+                                {{ project.description }}
+                            </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
             <div class="features">
