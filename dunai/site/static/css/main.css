@@ -355,6 +355,10 @@ p {
     color: var(--magenta);
 }
 
+h3.project-header {
+    font-weight: 300;
+}
+
 h3.project-header a {
     color: var(--cyan);
     text-decoration: underline;

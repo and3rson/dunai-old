@@ -27,6 +27,29 @@ services:
             main:
                 aliases:
                     - app
+    worker:
+        image: dunai
+        environment:
+            PYTHONUNBUFFERED: 0
+            DJANGO_SETTINGS_MODULE: 'dunai.settings.prod'
+        command: >
+            /bin/bash -c "
+                while ! nc -z postgres 5432
+                do
+                    echo Waiting for PostgreSQL
+                    sleep 1
+                done
+                ./manage.py worker
+            "
+        links:
+            - postgres
+        volumes:
+            - ../../static:/root/dunai/static
+            - ../../media:/root/dunai/media
+        networks:
+            main:
+                aliases:
+                    - worker
     postgres:
         image: postgres:9.6
         environment:

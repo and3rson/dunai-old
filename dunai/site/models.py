@@ -54,11 +54,11 @@ class Project(OrderedModel):
     title = models.TextField(null=False, blank=False)
     link = models.URLField(null=False, blank=False)
     description = models.TextField(null=False, blank=False)
+    stars = models.PositiveIntegerField(null=False, blank=False, default=0)
 
     def __str__(self):
         return u'{} ({})'.format(self.title, self.link)
 
-    @cached_model_method(ttl=86400)
     def get_stars(self):
         match = re.match('.*github\.com/([a-zA-Z0-9_\.-]+)/([a-zA-Z0-9_\.-]+)', self.link)
         try:
@@ -73,5 +73,8 @@ class Project(OrderedModel):
         except Exception as e:
             return 'Error: {}'.format(str(e))
         return
+
+    def update_stars(self):
+        self.stars = self.get_stars()
 
     __repr__ = __str__

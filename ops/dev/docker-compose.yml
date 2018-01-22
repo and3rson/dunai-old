@@ -23,6 +23,26 @@ services:
             - postgres
         ports:
             - 8000:8000
+    worker:
+        image: dunai
+        network_mode: "bridge"
+        environment:
+            PYTHONUNBUFFERED: 0
+            DJANGO_SETTINGS_MODULE: 'dunai.settings.dev'
+            DB_HOST:
+        command: >
+            /bin/bash -c "
+                while ! nc -z postgres 5432
+                do
+                    echo Waiting for PostgreSQL
+                    sleep 1
+                done
+                ./manage.py worker
+            "
+        volumes:
+            - ../..:/root/dunai
+        links:
+            - postgres
     postgres:
         image: postgres:9.6
         network_mode: "bridge"

@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?19" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?20" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
@@ -74,7 +74,7 @@
                     <h1 class="section-head projects-head">Public contributions</h1>
                     {% for project in projects %}
                     <div class="project">
-                        <h3 class="project-header"><a href="{{ project.link }}">{{ project.title }}</a> &mdash; ★ <span data-star-id="{{ project.id }}">&hellip;</span></h3>
+                        <h3 class="project-header"><a href="{{ project.link }}">{{ project.title }}</a> &mdash; ★ {{ project.stars }}</h3>
                         <div class="project-description">
                             {{ project.description }}
                         </div>
@@ -210,18 +210,6 @@
                         }
                     };
                 });
-
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', '/stars');
-                xhr.onload = function() {
-                    if (xhr.status != 200) {
-                        console.log('XHR failed:', xhr.status);
-                    }
-                    JSON.parse(xhr.responseText).forEach(item => {
-                        $('[data-star-id="' + item.id + '"]').innerHTML = item.stars;
-                    });
-                };
-                xhr.send();
             });
         </script>
         <script src="https://unpkg.com/tippy.js@beta/dist/tippy.all.min.js"></script>

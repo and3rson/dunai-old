@@ -19,9 +19,9 @@ def index(request):
     ))
 
 
-def stars(request):
-    return JsonResponse([
-        dict(id=project.id, stars=project.get_stars())
-        for project
-        in Project.objects.all()
-    ], safe=False)
+# def stars(request):
+#     return JsonResponse([
+#         dict(id=project.id, stars=project.get_stars())
+#         for project
+#         in Project.objects.all()
+    # ], safe=False)

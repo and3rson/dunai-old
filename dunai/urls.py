@@ -23,7 +23,7 @@ from .site import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index),
-    url(r'^stars$', views.stars),
+    # url(r'^stars$', views.stars),
     # url(r'^static/(?P<path>.*)$', serve)  # , {'document_root': settings.BASE_DIR + '/dunai/static/'}),
 ]
 
