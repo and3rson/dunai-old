@@ -3,6 +3,7 @@ import yaml
 
 from django.shortcuts import render
 from django.conf import settings
+from django.http import JsonResponse
 
 from .models import Feature, Project
 
@@ -16,3 +17,11 @@ def index(request):
         features=Feature.objects.all(),
         projects=Project.objects.all()
     ))
+
+
+def stars(request):
+    return JsonResponse([
+        dict(id=project.id, stars=project.get_stars())
+        for project
+        in Project.objects.all()
+    ], safe=False)
