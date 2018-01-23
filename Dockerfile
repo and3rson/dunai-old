@@ -17,6 +17,7 @@ RUN pip3.6 install -r ./requirements.txt
 
 COPY manage.py /root/dunai
 COPY dunai /root/dunai/dunai
+COPY client_secret.json /root/dunai
 
 CMD ["bash"]
 

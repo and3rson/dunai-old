@@ -84,11 +84,10 @@ if not DB_HOST:
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': DB_HOST,
-        'NAME': 'dunai',
-        'USER': 'dunai',
-        'PASSWORD': 'dunai'
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'spreadbase',
+        'CLIENT_SECRET': os.path.join(BASE_DIR, 'client_secret.json'),
+        'FILE_NAME': 'Database'
     }
 }
 
@@ -140,3 +139,26 @@ print('Static root:', STATIC_ROOT)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'stdout': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['stdout'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'spreadbase': {
+            'handlers': ['stdout'],
+            'level': 'DEBUG',
+            'propagate': False
+        }
+    },
+}
