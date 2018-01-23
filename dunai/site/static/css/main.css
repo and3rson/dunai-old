@@ -154,26 +154,34 @@ h4 {
     padding: 2rem;
 }
 
-.slash-ctn {
-    max-width: 100vw;
-    height: 5vw;
-    overflow: hidden;
-    position: relative;
-    /*border: 1px solid red;*/
-}
+/*.slash-ctn {*/
+/*    max-width: 100vw;*/
+/*    height: 5vw;*/
+/*    overflow: hidden;*/
+/*    position: relative;*/
+/*    [>border: 1px solid red;<]*/
+/*}*/
+
+/*.slash {*/
+/*    position: absolute;*/
+/*    top: 2.45vw;*/
+/*    left: -10vw;*/
+/*    right: -10vw;*/
+/*    height: 0.2rem;*/
+/*    transform: rotate(2.5deg);*/
+/*    transform-origin: 50% 50%;*/
+/*}*/
 
 .slash {
-    position: absolute;
-    top: 2.45vw;
-    left: -10vw;
-    right: -10vw;
-    height: 0.2rem;
-    transform: rotate(2.5deg);
-    transform-origin: 50% 50%;
+    /*width: 100vw;*/
+    /*height: 0.2rem;*/
 }
 
 .section-head {
     /*margin-left: 2rem;*/
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    font-weight: 300;
 }
 
 .splash {
@@ -336,9 +344,11 @@ p {
 .company-descr {
     margin: 0;
     padding: 0 0 1rem 2.5rem;
-    font-size: 1.2rem;
-    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 150%;
+    font-weight: 400;
     color: #EEEEEE;
+    font-family: Roboto;
     /*color: var(--white);*/
 }
 
@@ -360,8 +370,13 @@ h3.project-header {
 }
 
 h3.project-header a {
-    color: var(--cyan);
+    color: var(--magenta);
     text-decoration: underline;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 150%;
 }
 
 /* Features */
@@ -459,15 +474,15 @@ h3.project-header a {
 }
 
 .contacts .contact a:link, .contacts .contact a:hover, .contacts .contact a:active, .contacts .contact a:visited {
-    color: var(--magenta);
+    color: var(--green);
 }
 
 .contacts .contact.linkedin img {
-    background-color: #0274B3;
+    background-color: #42B41E;
 }
 
 .contacts .contact.email img {
-    background-color: #DF0024;
+    background-color: #42B41E;
 }
 
 .contacts .contact.phone img {
