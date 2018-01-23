@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?21" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?22" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
@@ -37,29 +37,34 @@
             </div>
             <div class="companies">
                 <div class="container">
-                    <h1 class="section-head">Experience</h1>
                     <div class="row">
                         {% for company in cv.companies %}
                         <div class="col col-6">
-                            <div class="company-header">
-                                <h3 class="company-role">
-                                    {{ company.role }}
-                                </h3>
-                                <h4 class="company-name">
+                            <div class="company">
+                                <div class="company-left">
                                     <img class="company-icon" src="{% static company.icon %}" alt="{{ company.name }} icon" />
-                                    {{ company.name }}
-                                </h4>
-                                <h4 class="company-date">
-                                    {{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %}
-                                </h4>
-                            </div>
-                            <p class="company-descr">{{ company.description }}</p>
-                            <div class="company-technologies">
-                                {% for technology in company.technologies %}
-                                    <span class="technology">
-                                        {{ technology|icon }}
-                                    </span>
-                                {% endfor %}
+                                </div>
+                                <div class="company-right">
+                                    <div class="company-header">
+                                        <h3 class="company-role" style="color: {{ company.color }}">
+                                            {{ company.role }}
+                                        </h3>
+                                        <h4 class="company-name" style="color: {{ company.color }}">
+                                            {{ company.name }}
+                                        </h4>
+                                        <h4 class="company-date">
+                                            {{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %}
+                                        </h4>
+                                    </div>
+                                    <p class="company-descr">{{ company.description }}</p>
+                                    <div class="company-technologies">
+                                        {% for technology in company.technologies %}
+                                            <span class="technology">
+                                                {{ technology|icon }}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         {% endfor %}
@@ -70,12 +75,14 @@
                 <div class="slash-ctn">
                     <div class="slash projects-slash"></div>
                 </div>
+                <div class="section-head projects-head">
+                    <h1>Public contributions</h1>
+                </div>
                 <div class="container">
-                    <h1 class="section-head projects-head">Public contributions</h1>
                     <div class="row">
                         {% for project in projects %}
                         <div class="project col">
-                            <h3 class="project-header"><a href="{{ project.link }}">{{ project.title }}</a> &mdash; ★ {{ project.stars }}</h3>
+                            <h3 class="project-header">★ {{ project.stars }} <a href="{{ project.link }}">{{ project.title }}</a></h3>
                             <div class="project-description">
                                 {{ project.description }}
                             </div>
@@ -88,8 +95,10 @@
                 <div class="slash-ctn">
                     <div class="slash features-slash"></div>
                 </div>
+                <div class="section-head features-head">
+                    <h1>Spare time</h1>
+                </div>
                 <div class="container">
-                    <h1 class="section-head features-head">Spare time</h1>
                     <div class="row">
                         {% for feature in features %}
                             <div class="col">
@@ -109,8 +118,10 @@
                 <div class="slash-ctn">
                     <div class="slash contacts-slash"></div>
                 </div>
+                <div class="section-head contacts-head">
+                    <h1>Contacts</h1>
+                </div>
                 <div class="container">
-                    <h1 class="section-head contacts-head">Contacts</h1>
                     <div class="contact linkedin">
                         <img src="{% static 'images/linkedin.png' %}" alt="Linkedin" class="social" />
                         <span>
