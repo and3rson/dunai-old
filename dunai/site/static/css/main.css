@@ -183,13 +183,13 @@ h4 {
     border-bottom-width: 2px;
     border-bottom-style: solid;
     font-weight: 300;
-    padding: 0 2rem;
 }
 
 .section-head h1 {
     display: block;
     margin: 0 auto;
     max-width: 1080px;
+    padding: 0 2rem;
 }
 
 .splash {
