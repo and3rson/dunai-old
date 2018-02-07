@@ -56,6 +56,7 @@ companies:
   - name: N1ght.com
     icon: images/n1ght.png
     color: '#F8F5EB'
+    bgcolor: '#003300'
     role: Senior Python Dev
     technologies:
       - Python
@@ -123,6 +124,7 @@ companies:
   - name: PrimoCollect
     icon: images/primocollect.png
     color: '#F2F2F2'
+    bgcolor: '#444444'
     role: Technical Lead
     technologies:
       - Python

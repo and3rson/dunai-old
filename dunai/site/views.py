@@ -8,13 +8,23 @@ from django.http import JsonResponse
 from .models import Feature, Project
 
 
-def index(request):
+def get_cv():
     f = open(os.path.join(settings.BASE_DIR, 'dunai', 'files', 'cv.yaml'))
     with f:
-        cv = yaml.load(f.read())
+        return yaml.load(f.read())
+
+
+def index(request):
     return render(request, 'index.html', dict(
-        cv=cv,
+        cv=get_cv(),
         features=Feature.objects.all(),
+        projects=Project.objects.all()
+    ))
+
+
+def cv(request):
+    return render(request, 'cv.html', dict(
+        cv=get_cv(),
         projects=Project.objects.all()
     ))
 
