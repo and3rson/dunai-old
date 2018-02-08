@@ -52,48 +52,85 @@ h4 {
     text-align: center;
 }
 
-@media print, (min-width: 600px) {
+.splash .title h1, .splash .title h2 {
+    text-align: left;
+}
+
+.row {
+    font-size: 0;
+    margin-left: -2rem;
+    margin-right: -2rem;
+}
+
+.row [class^="col-"], .row [class*=" col-"] {
+    display: inline-block;
+    font-size: 1rem;
+    vertical-align: top;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.row .col-1-2 {
+    width: 50%;
+}
+
+.row .col-1-3 {
+    width: 33.3333%;
+}
+
+.splash {
+    display: table;
+}
+
+.splash .photo {
+    width: 10rem;
+    height: 10rem;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.splash .title {
+    display: table-cell;
+    padding: 0 2rem;
+    vertical-align: middle;
+}
+
+@media (max-width: 600px) {
     .splash .title h1, .splash .title h2 {
-        text-align: left;
+        text-align: center;
     }
 
     .row {
         font-size: 0;
-        margin-left: -2rem;
-        margin-right: -2rem;
+        margin: 0;
     }
 
     .row [class^="col-"], .row [class*=" col-"] {
-        display: inline-block;
-        font-size: 1rem;
-        vertical-align: top;
-        padding-left: 2rem;
-        padding-right: 2rem;
+        display: block;
+        padding: 0;
     }
 
     .row .col-1-2 {
-        width: 50%;
+        width: 100%;
     }
 
     .row .col-1-3 {
-        width: 33.3333%;
+        width: 100%;
     }
 
     .splash {
-        display: table;
+        display: block;
     }
 
     .splash .photo {
-        width: 10rem;
-        height: 10rem;
-        display: table-cell;
-        vertical-align: middle;
+        width: auto;
+        height: auto;
+        display: block;
     }
 
     .splash .title {
-        display: table-cell;
-        padding: 0 2rem;
-        vertical-align: middle;
+        display: block;
+        padding: 0;
     }
 }
 
