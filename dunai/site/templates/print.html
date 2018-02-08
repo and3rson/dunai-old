@@ -61,6 +61,14 @@
                 </div>
                 {% endfor %}
             </div>
+            <div class="misc">
+                <h2>Fun facts</h2>
+                <ul>
+                    {% for fact in cv.misc %}
+                        <li>{{ fact }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
             <div class="contacts">
                 <h2>Contacts</h2>
                 <ul>
