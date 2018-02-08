@@ -52,7 +52,7 @@ h4 {
     text-align: center;
 }
 
-@media (min-width: 600px) {
+@media print, (min-width: 600px) {
     .splash .title h1, .splash .title h2 {
         text-align: left;
     }
