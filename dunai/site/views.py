@@ -3,7 +3,7 @@ import yaml
 
 from django.shortcuts import render
 from django.conf import settings
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 from .models import Feature, Project
 
@@ -22,11 +22,17 @@ def index(request):
     ))
 
 
-def cv(request):
-    return render(request, 'cv.html', dict(
+def print(request):
+    return render(request, 'print.html', dict(
         cv=get_cv(),
         projects=Project.objects.all()
     ))
+
+
+def print_pdf(request):
+    pass
+    # response = HttpResponse(get_pdf(), content_type='application/pdf')
+    # return response
 
 
 # def stars(request):

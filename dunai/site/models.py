@@ -54,7 +54,7 @@ class Project(OrderedModel):
     title = models.TextField(null=False, blank=False)
     link = models.URLField(null=False, blank=False)
     description = models.TextField(null=False, blank=False)
-    stars = models.PositiveIntegerField(null=False, blank=False, default=0)
+    stars = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
         return u'{} ({})'.format(self.title, self.link)

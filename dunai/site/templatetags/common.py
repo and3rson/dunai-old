@@ -63,3 +63,8 @@ def icon(t):
 
     return mark_safe(result)
 
+
+@register.simple_tag(takes_context=True)
+def root(context):
+    request = context['request']
+    return request.build_absolute_uri('/').rstrip('/')

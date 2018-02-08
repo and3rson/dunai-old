@@ -82,7 +82,7 @@
                     <div class="row">
                         {% for project in projects %}
                         <div class="project col">
-                            <h3 class="project-header">★ {{ project.stars }} <a href="{{ project.link }}">{{ project.title }}</a></h3>
+                            <h3 class="project-header">{% if project.stars %}★ {{ project.stars }} {% endif %}<a href="{{ project.link }}">{{ project.title }}</a></h3>
                             <div class="project-description">
                                 {{ project.description }}
                             </div>
