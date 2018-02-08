@@ -1,3 +1,10 @@
+bio:
+  - >
+      I love interesting & crazy stuff, clean reusable code, maintainable scalable hi-load architectures, shells, vim, tmux, awesomewm, drones, IoT, Doom game series, UT99, multiplayer game hacking, OpenSource, heavy/thrash/stoner metal, traveling, snowboarding, alcohol & random adventures.
+  - >
+      I like to pursuit fresh ideas, to be precise in my profession & to be verbose in communication.
+  - >
+      I've been coding for around 11 years and experienced a lot of technologies. My belief is that every task requires a specific set of tools and technologies in order to be solved efficiently. That's why I often switch mainly between Python, JS, Java, C and Go (sorted by experience.)
 companies:
   - name: T1DExchange (UnitIO)
     icon: images/t1dexchange.png

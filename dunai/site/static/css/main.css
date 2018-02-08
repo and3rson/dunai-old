@@ -265,6 +265,13 @@ p {
     font-family: Open Sans;
 }
 
+/* Bio block */
+
+.bio p {
+    font-family: Roboto;
+    font-size: 1.6rem;
+}
+
 /* Companies block */
 
 .companies {
