@@ -65,7 +65,6 @@ services:
                     - postgres
     wkhtmltopdf:
         image: openlabs/docker-wkhtmltopdf-aas
-        network_mode: "bridge"
         networks:
             main:
                 aliases:

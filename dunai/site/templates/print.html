@@ -47,7 +47,7 @@
                 <h2>Public contributions</h2>
                 {% for project in projects %}
                 <div class="project">
-                    <h3 class="project-header"><u>{{ project.title }}</u>{% if project.stars %} (★{{ project.stars }}){% endif %}</h3>
+                    <h3 class="project-header"><u>{{ project.title }}</u>{% if project.stars %} ({{ project.stars }} stars){% endif %}</h3>
                     <div class="project-description">
                         {{ project.description }}
                     </div>
