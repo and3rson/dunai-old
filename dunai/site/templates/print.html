@@ -17,7 +17,7 @@
         <div class="main">
             <div class="splash">
                 <div class="photo middle">
-                    <img src="{% static 'images/me_cv.jpg' %}" class="responsive" />
+                    <img src="{% root %}{% static 'images/me_cv.jpg' %}" class="responsive" />
                 </div>
                 <div class="title middle">
                     <h1>Andrew<br />Dunai</h1>
@@ -25,38 +25,34 @@
             </div>
             <div class="companies">
                 <h2>Professional experience</h2>
-                <div class="items">
-                    {% for company in cv.companies %}
-                    <div class="company">
-                        <span class="middle">
-                            <img class="company-icon" src="{% root %}{% static company.icon %}" alt="{{ company.name }} icon" style="{% if company.bgcolor %}background: {{ company.bgcolor }}{% endif %}" />
-                        </span>
-                        <span class="middle">
-                            <h3>{{ company.name }}</h3>
-                        </span>
-                        <h4>
-                            {{ company.role }} ({{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %})
-                        </h4>
-                        <p class="company-descr">{{ company.description }}</p>
-                        <div class="company-technologies">
-                            <p>Technologies: {% for technology in company.technologies %}{{ technology }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-                        </div>
+                {% for company in cv.companies %}
+                <div class="company">
+                    <span class="middle">
+                        <img class="company-icon" src="{% root %}{% static company.icon %}" alt="{{ company.name }} icon" style="{% if company.bgcolor %}background: {{ company.bgcolor }}{% endif %}" />
+                    </span>
+                    <span class="middle">
+                        <h3>{{ company.name }}</h3>
+                    </span>
+                    <h4>
+                        {{ company.role }} ({{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %})
+                    </h4>
+                    <p class="company-descr">{{ company.description }}</p>
+                    <div class="company-technologies">
+                        <p>Technologies: {% for technology in company.technologies %}{{ technology }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
             <div class="projects">
                 <h2>Public contributions</h2>
-                <div class="row">
-                    {% for project in projects %}
-                    <div class="project col-1-3">
-                        <h3 class="project-header"><u>{{ project.title }}</u>{% if project.stars %} (★{{ project.stars }}){% endif %}</h3>
-                        <div class="project-description">
-                            {{ project.description }}
-                        </div>
+                {% for project in projects %}
+                <div class="project">
+                    <h3 class="project-header"><u>{{ project.title }}</u>{% if project.stars %} (★{{ project.stars }}){% endif %}</h3>
+                    <div class="project-description">
+                        {{ project.description }}
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
             <div class="contacts">
                 <h2>Contacts</h2>

@@ -13,3 +13,4 @@ ALLOWED_HOSTS = [
     'www.dun.ai:8000'
 ]
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

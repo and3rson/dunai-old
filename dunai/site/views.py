@@ -1,6 +1,10 @@
 import os
-import yaml
+from time import time
+from threading import Lock
 
+import yaml
+import requests
+from django.urls import reverse
 from django.shortcuts import render
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
@@ -9,9 +13,9 @@ from .models import Feature, Project
 
 
 def get_cv():
-    f = open(os.path.join(settings.BASE_DIR, 'dunai', 'files', 'cv.yaml'))
-    with f:
-        return yaml.load(f.read())
+    cvfile = open(os.path.join(settings.BASE_DIR, 'dunai', 'files', 'cv.yaml'))
+    with cvfile:
+        return yaml.load(cvfile.read())
 
 
 def index(request):
@@ -29,15 +33,31 @@ def print(request):
     ))
 
 
+GEN_LAST = 0
+GEN_LOCK = Lock()
+
+
 def print_pdf(request):
-    pass
-    # response = HttpResponse(get_pdf(), content_type='application/pdf')
-    # return response
-
-
-# def stars(request):
-#     return JsonResponse([
-#         dict(id=project.id, stars=project.get_stars())
-#         for project
-#         in Project.objects.all()
-    # ], safe=False)
+    global GEN_LAST
+    GEN_LOCK.acquire()
+    try:
+        if GEN_LAST + 3600 < time():
+            response = requests.get(request.build_absolute_uri('/print'))
+            with open('/tmp/print.html', 'wb') as html:
+                html.write(response.content)
+            response = requests.post(
+                'http://wkhtmltopdf',
+                files=dict(
+                    file=(
+                        'print.html',
+                        open('/tmp/print.html', 'rb')
+                    )
+                )
+            )
+            with open('/tmp/print.pdf', 'wb') as pdf:
+                pdf.write(response.content)
+            GEN_LAST = time()
+    finally:
+        GEN_LOCK.release()
+    with open('/tmp/print.pdf', 'rb') as pdf:
+        return HttpResponse(pdf.read(), content_type='application/pdf')
