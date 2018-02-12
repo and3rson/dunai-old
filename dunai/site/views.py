@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from io import BytesIO
 
 import yaml
@@ -79,8 +80,17 @@ def cv_doc(request):
     doc.add_heading('Experience', 1)
     for company in cv['companies']:
         doc.add_section(WD_SECTION.CONTINUOUS)
-        head = doc.add_heading(company['role'] + '\n', 2)
-        run = head.add_run(company['name'])
+        head = doc.add_heading('', 2)
+        head.add_run(company['role'] + '\n')
+        run = head.add_run()
+        run.add_picture(str(
+            Path(settings.BASE_DIR)
+            / 'dunai'
+            / 'site'
+            / 'static'
+            / company['icon']
+        ), width=Pt(16), height=Pt(16))
+        head.add_run(company['name'])
         run = head.add_run(' ({} - {})'.format(
             company['start'].strftime('%b %Y'),
             company['end'].strftime('%b %Y') if 'end' in company else 'now'
