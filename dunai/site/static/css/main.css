@@ -588,9 +588,44 @@ img.responsive {
     height: auto;
 }
 
+.contact {
+    display: table;
+}
+
 .social {
     width: 5rem;
     height: 5rem;
+    display: table-cell;
+}
+
+.social.text-icon {
+    vertical-align: middle;
+    background: #42B41E;
+    color: #FFF;
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 5rem;
+    text-align: center;
+    cursor: pointer;
+    transform-origin: 0% 0%;
+    animation: pendulum 3s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.social + span {
+    display: table-cell;
+}
+
+@keyframes pendulum {
+    0% {
+        transform: rotate(60deg)
+    }
+    50% {
+        transform: rotate(30deg)
+    }
+    100% {
+        transform: rotate(60deg)
+    }
 }
 
 .nohl {

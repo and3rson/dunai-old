@@ -18,7 +18,6 @@ services:
             "
         links:
             - postgres
-            - wkhtmltopdf
         volumes:
             - ../../static:/root/dunai/static
             - ../../media:/root/dunai/media
@@ -63,24 +62,6 @@ services:
             main:
                 aliases:
                     - postgres
-    wkhtmltopdf:
-        image: openlabs/docker-wkhtmltopdf-aas
-        networks:
-            main:
-                aliases:
-                    - wkhtmltopdf
-    #nginx:
-    #    image: nginx
-    #    ports:
-    #        - 80:80
-    #    volumes:
-    #        - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    #    volumes_from:
-    #        - app:ro
-    #    networks:
-    #        main:
-    #            aliases:
-    #                - nginx
 networks:
     main:
 

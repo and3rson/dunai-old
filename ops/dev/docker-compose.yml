@@ -21,7 +21,6 @@ services:
             - ../..:/root/dunai
         links:
             - postgres
-            - wkhtmltopdf
         ports:
             - 8000:8000
     worker:
@@ -51,6 +50,3 @@ services:
             POSTGRES_DB: dunai
             POSTGRES_USER: dunai
             POSTGRES_PASSWORD: dunai
-    wkhtmltopdf:
-        image: openlabs/docker-wkhtmltopdf-aas
-        network_mode: "bridge"

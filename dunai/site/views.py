@@ -1,24 +1,33 @@
 import os
-from time import time
-from threading import Lock
+from io import BytesIO
 
 import yaml
-import requests
+import docx
+from docx.enum.text import WD_ALIGN_PARAGRAPH  # pylint: disable=no-name-in-module
+from docx.enum.section import WD_SECTION  # pylint: disable=no-name-in-module
+# from docx.enum.style import WD_STYLE_TYPE  # pylint: disable=no-name-in-module
 from django.urls import reverse
 from django.shortcuts import render
 from django.conf import settings
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse
 
 from .models import Feature, Project
 
 
 def get_cv():
+    """
+    Read & return CV dict from YAML file.
+    """
     cvfile = open(os.path.join(settings.BASE_DIR, 'dunai', 'files', 'cv.yaml'))
     with cvfile:
         return yaml.load(cvfile.read())
 
 
 def index(request):
+    """
+    Render index page.
+    """
+    # pylint: disable=no-member
     return render(request, 'index.html', dict(
         cv=get_cv(),
         features=Feature.objects.all(),
@@ -26,38 +35,80 @@ def index(request):
     ))
 
 
-def print(request):
-    return render(request, 'print.html', dict(
-        cv=get_cv(),
-        projects=Project.objects.all()
-    ))
+def cv_doc(request):
+    """
+    Generate CV in .DOCX format.
+    """
+    # pylint: disable=invalid-name
 
+    if request.GET.get('preview'):
+        url = request.build_absolute_uri(reverse('cv_doc'))
+        return HttpResponse(
+            '<html>'
+            '<body style="margin: 0; padding: 0">'
+            '<iframe src="{}" style="width: 100%; height: 100%; '
+            'box-sizing: border-box; border: 0 none"></iframe>'
+            '</body>'
+            '</html>'.format(
+                'http://docs.google.com/gview?url={}&embedded=true'.format(url)
+            ), content_type='text/html'
+        )
 
-GEN_LAST = 0
-GEN_LOCK = Lock()
+    cv = get_cv()
 
+    doc = docx.Document()
+    for style in doc.styles:
+        print(style)
+    doc.styles['Normal'].font.name = 'Arial'
+    print(dir(doc.styles['Heading 1']))
+    # date_style = doc.styles.add_style('Date', WD_STYLE_TYPE.CHARACTER)
+    h1 = doc.add_heading('Andrew Dunai', 0)
+    h1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    h2 = doc.add_heading('Full Stack + Software Architect', 1)
+    h2.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-def print_pdf(request):
-    global GEN_LAST
-    GEN_LOCK.acquire()
-    try:
-        if GEN_LAST + 3600 < time():
-            response = requests.get(request.build_absolute_uri('/print'))
-            with open('/tmp/print.html', 'wb') as html:
-                html.write(response.content)
-            response = requests.post(
-                'http://wkhtmltopdf',
-                files=dict(
-                    file=(
-                        'print.html',
-                        open('/tmp/print.html', 'rb')
-                    )
-                )
-            )
-            with open('/tmp/print.pdf', 'wb') as pdf:
-                pdf.write(response.content)
-            GEN_LAST = time()
-    finally:
-        GEN_LOCK.release()
-    with open('/tmp/print.pdf', 'rb') as pdf:
-        return HttpResponse(pdf.read(), content_type='application/pdf')
+    doc.add_heading('Bio', 1)
+    for par_text in cv['bio']:
+        doc.add_paragraph(par_text.strip())
+
+    doc.add_heading('Companies', 1)
+    for company in cv['companies']:
+        doc.add_section(WD_SECTION.CONTINUOUS)
+        doc.add_heading(company['role'], 2)
+        head = doc.add_heading(company['name'], 3)
+        run = head.add_run(' ({} - {})'.format(
+            company['start'],
+            company['end'] if 'end' in company else 'now'
+        ))
+        run.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+        run.italic = True
+
+        desc = doc.add_paragraph('')
+        desc.add_run('About: ').bold = True
+        desc.add_run(company['info'].strip())
+
+        desc = doc.add_paragraph('')
+        desc.add_run('My role: ').bold = True
+        desc.add_run(company['description'].strip())
+
+        tech = doc.add_paragraph('')
+        tech.add_run('Technologies: ').bold = True
+        for i, technology in enumerate(company['technologies']):
+            if i > 0:
+                tech.add_run(', ')
+            tech.add_run(technology)
+
+    doc.add_heading('Fun facts', 1)
+    for fact in cv['misc']:
+        doc.add_paragraph(fact, style='ListBullet')
+
+    output = BytesIO()
+    doc.save(output)
+    output.seek(0)
+    response = HttpResponse(
+        output,
+        content_type='application/vnd.openxmlformats-officedocument'
+        '.wordprocessingml.document'
+    )
+    response['Content-Disposition'] = 'attachment; filename=cv.docx'
+    return response

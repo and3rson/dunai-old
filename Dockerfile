@@ -7,6 +7,7 @@ RUN apk add python3 python3-dev py-pip libjpeg
 RUN apk add bash
 RUN apk add py3-pillow
 RUN apk add py3-psycopg2
+RUN apk add py3-lxml libxml2
 
 RUN mkdir /root/dunai
 WORKDIR /root/dunai
