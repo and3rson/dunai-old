@@ -45,26 +45,36 @@ SVG_ICONS = {
 }
 
 
-@register.filter
-def icon(t):
-    img_pat = \
-        '<img src="{}" class="icon" title="' + t + '" alt="' + t + '" />'
-    icon_pat = \
-        '<i class="devicon-{} icon" title="' + t + '"></i>'
-    t = t.lower()
-    result = None
+# @register.filter
+# def icon(t):
+#     img_pat = \
+#         '<img src="{}" class="icon" title="' + t + '" alt="' + t + '" />'
+#     icon_pat = \
+#         '<i class="devicon-{} icon" title="' + t + '"></i>'
+#     t = t.lower()
+#     result = None
 
-    if t in SVG_ICONS:
-        result = img_pat.format(*SVG_ICONS[t])
-    elif t in ICONS:
-        result = icon_pat.format(ICONS[t])
-    else:
-        result = icon_pat.format(ICONS['default'])
+#     if t in SVG_ICONS:
+#         result = img_pat.format(*SVG_ICONS[t])
+#     elif t in ICONS:
+#         result = icon_pat.format(ICONS[t])
+#     else:
+#         result = icon_pat.format(ICONS['default'])
 
-    return mark_safe(result)
+#     return mark_safe(result)
 
 
 @register.simple_tag(takes_context=True)
 def root(context):
     request = context['request']
     return request.build_absolute_uri('/').rstrip('/')
+
+
+@register.filter
+def key(d):
+    return list(d.keys())[0]
+
+
+@register.filter
+def value(d):
+    return list(d.values())[0]

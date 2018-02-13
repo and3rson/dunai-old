@@ -5,8 +5,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=cyrillic" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?27" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/devicon.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?28" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
         <meta name="theme-color" content="#080800" />
@@ -71,7 +71,7 @@
                                     <div class="company-technologies">
                                         {% for technology in company.technologies %}
                                             <span class="technology">
-                                                {{ technology|icon }}
+                                                <i class="icon icon-{{ technology|value }}" title="{{ technology|key }}"></i>
                                             </span>
                                         {% endfor %}
                                     </div>

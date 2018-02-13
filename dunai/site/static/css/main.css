@@ -360,6 +360,7 @@ p {
     margin: 0 0.5rem 0.5rem 0;
     font-size: 1.6rem;
     display: inline-block;
+    /*width: 1.6rem;*/
     vertical-align: middle;
     color: var(--white) !important;
 }

@@ -11,16 +11,18 @@ companies:
     color: '#00A9D0'
     role: Software Architect
     technologies:
-      - Python
-      - Django
-      - NodeJS
-      - RabbitMQ
-      - PostgreSQL
-      - MongoDB
-      - Service architecture
-      - Docker
-      - Consul
-      - AWS
+      - Python: python
+      - Django: django
+      - NodeJS: nodejs
+      - RabbitMQ: rabbitmq
+      - PostgreSQL: postgresql
+      - MongoDB: mongodb
+      - Service architecture: microservices
+      - Docker: docker
+      - Consul: consul
+      - AWS: aws
+      - Linux administration: linux
+      - Networking & security: security
     info: |
       T1DExchange is a Biological research project for people with type 1 diabetes.
     description: |
@@ -32,16 +34,18 @@ companies:
     color: '#DC1E33'
     role: Back-End Architect
     technologies:
-      - Python
-      - Django
-      - NodeJS
-      - RabbitMQ
-      - PostgreSQL
-      - Microservices
-      - Docker
-      - Redis
-      - Consul
-      - AWS
+      - Python: python
+      - Django: django
+      - NodeJS: nodejs
+      - RabbitMQ: rabbitmq
+      - PostgreSQL: postgresql
+      - Microservices: microservices
+      - Docker: docker
+      - Redis: redis
+      - Consul: consul
+      - AWS: aws
+      - Linux administration: linux
+      - Networking & security: security
     info: |
       A distributed communication system that provides the corporate messaging platform with advanced management tools built for large enterprises.
     description: |
@@ -57,11 +61,11 @@ companies:
     color: '#0469FF'
     role: Senior Python Dev
     technologies:
-      - Python
-      - Django
-      - JS
-      - Web
-      - PostgreSQL
+      - Python: python
+      - Django: django
+      - JS: javascript
+      - Web: web
+      - PostgreSQL: postgresql
     info: |
       Marketplace for courses as well as one-shot training sessions.
     description: |
@@ -75,14 +79,14 @@ companies:
     bgcolor: '#003300'
     role: Senior Python Dev
     technologies:
-      - Python
-      - Django
-      - Java
-      - Android
-      - JS
-      - Web
-      - PostgreSQL
-      - Heroku
+      - Python: python
+      - Django: django
+      - Java: java
+      - Android: android
+      - JS: javascript
+      - Web: web
+      - PostgreSQL: postgresql
+      - Heroku: heroku
     info: |
       "A service that provides centralized access to aggregated data about events, festivals & parties around the globe."
     description: |
@@ -95,9 +99,9 @@ companies:
     color: '#0194D5'
     role: Senior Python Dev
     technologies:
-      - Python
-      - Django
-      - MySQL
+      - Python: python
+      - Django: django
+      - MySQL: mysql
     info: |
       The OspreyData platform is designed from the ground up with sensor analytics in mind, focusing on storing and manipulating time series data and modeling complex relationships between high-resolution signals.
     description: |
@@ -110,18 +114,18 @@ companies:
     color: '#DF0700'
     role: Senior Full-Stack Dev
     technologies:
-      - Python
-      - Django
-      - Twisted
-      - C++
-      - JS
-      - Web
-      - Backbone
-      - Qt
-      - Solr
-      - PostgreSQL
-      - MongoDB
-      - RabbitMQ
+      - Python: python
+      - Django: django
+      - Twisted: twisted
+      - C++: cplusplus
+      - JS: javascript
+      - Web: web
+      - Backbone: backbonejs
+      - Qt: qt
+      - Solr: solr
+      - PostgreSQL: postgresql
+      - MongoDB: mongodb
+      - RabbitMQ: rabbitmq
     info: |
       The first company in the world to develop real-time dynamic pricing technology for digital information.
     description: |
@@ -136,10 +140,10 @@ companies:
     color: '#D4E16C'
     role: Senior Webmaster
     technologies:
-      - PHP
-      - MySQL
-      - Linux administration
-      - Networking & security
+      - PHP: php
+      - MySQL: mysql
+      - Linux administration: linux
+      - Networking & security: security
     info: |
       Axiomatics provides fine-grained access control and ABAC solutions for IT enterprises.
     description: |
@@ -157,17 +161,19 @@ companies:
     bgcolor: '#444444'
     role: Technical Lead
     technologies:
-      - Python
-      - Flask
-      - GTK
-      - Java
-      - C++
-      - Web
-      - JS
-      - Qt
-      - PostgreSQL
-      - MS SQL
-      - SIP
+      - Python: python
+      - Flask: flask
+      - GTK: gtk
+      - Java: java
+      - C++: cplusplus
+      - Web: web
+      - JS: javascript
+      - Qt: qt
+      - PostgreSQL: postgresql
+      - MS SQL: mssql
+      - SIP: asterisk
+      - Linux administration: linux
+      - Networking & security: security
     info: |
       A collection agency, i. e. a company that recover funds that are past due or accounts that are in default.
     description: |
@@ -189,11 +195,12 @@ companies:
     color: '#0092CE'
     role: Full Stack Dev
     technologies:
-      - PHP
-      - C#
-      - C++
-      - Web
-      - JS
+      - PHP: php
+      - C#: csharp
+      - C++: cplusplus
+      - Web: web
+      - JS: javascript
+      - Linux administration: linux
     info: |
       A global crowdsourcing marketplace website.
     description: |
@@ -209,10 +216,12 @@ companies:
     color: '#B2B2B2'
     role: Back-End Dev
     technologies:
-      - PHP
-      - Web
-      - JS
-      - MySQL
+      - PHP: php
+      - Web: web
+      - JS: javascript
+      - MySQL: mysql
+      - Linux administration: linux
+      - Networking & security: security
     info: |
       Ukrainian internet service provider (acquired by Volia ISP in 2017.)
     description: |

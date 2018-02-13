@@ -115,7 +115,7 @@ def cv_doc(request):
         for i, technology in enumerate(company['technologies']):
             if i > 0:
                 tech.add_run(', ')
-            tech.add_run(technology)
+            tech.add_run(list(technology.keys())[0])
 
     doc.add_heading('Fun facts', 1)
     for fact in cv['misc']:
