@@ -4,10 +4,9 @@
         <title>Andrew Dunai</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;subset=cyrillic" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?26" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/devicons.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?27" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/devicon.min.css' %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="google-site-verification" content="SkJC4hg_kbFTRduhPgpRUMiRJzMwoACaZ9hcBWxHJ9Y" />
         <meta name="theme-color" content="#080800" />
@@ -32,7 +31,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="splash-slash">
+                <!--<div class="splash-slash">-->
+                <!--</div>-->
+                <div class="splash-gradient">
                 </div>
             </div>
             <div class="bio">
@@ -65,7 +66,8 @@
                                             {{ company.start|date:"b Y" }} - {% if company.end %}{{ company.end|date:"b Y" }}{% else %}now{% endif %}
                                         </h4>
                                     </div>
-                                    <p class="company-descr">{{ company.description }}</p>
+                                    <p class="company-descr"><strong>About:</strong> {{ company.info }}</p>
+                                    <p class="company-descr"><strong>My role:</strong> {{ company.description }}</p>
                                     <div class="company-technologies">
                                         {% for technology in company.technologies %}
                                             <span class="technology">
