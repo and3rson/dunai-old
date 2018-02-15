@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     # url(r'^print$', views.print, name='print'),
     # url(r'^print.pdf$', views.print_pdf, name='print_pdf'),
-    url(r'^cv.doc$', views.cv_doc, name='cv_doc'),
+    url(r'^cv', views.cv_doc, name='cv_doc'),
     # url(r'^stars$', views.stars),
     # url(r'^static/(?P<path>.*)$', serve)  # , {'document_root': settings.BASE_DIR + '/dunai/static/'}),
 ]
