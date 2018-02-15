@@ -77,6 +77,7 @@ def cv_doc(request):
         par = doc.add_paragraph(par_text.strip())
         par.style = text_par
 
+    doc.add_page_break()
     doc.add_heading('Experience', 1)
     for company in cv['companies']:
         doc.add_section(WD_SECTION.CONTINUOUS)
@@ -117,9 +118,33 @@ def cv_doc(request):
                 tech.add_run(', ')
             tech.add_run(list(technology.keys())[0])
 
+    doc.add_page_break()
+    doc.add_heading('Some of my public contributions', 1)
+    for project in Project.objects.all():
+        doc.add_section(WD_SECTION.CONTINUOUS)
+        head = doc.add_heading('', 2)
+        head.add_run(project.title)
+        head.add_run(' ({} stars)\n'.format(project.stars)).italic = True
+        head.add_run(project.link).underline = True
+        desc = doc.add_paragraph(project.description)
+        desc.style = text_par
+
+    doc.add_page_break()
     doc.add_heading('Fun facts', 1)
     for fact in cv['misc']:
         doc.add_paragraph(fact, style='ListBullet')
+
+    contacts = [
+        ('Linkedin', 'https://www.linkedin.com/in/dunai/'),
+        ('Email', 'a@dun.ai'),
+        ('Phone', '+380633700097')
+    ]
+
+    doc.add_heading('Contacts', 1)
+    for title, value in contacts:
+        par = doc.add_paragraph('', style='ListBullet')
+        par.add_run(title + ':').bold = True
+        par.add_run(' ' + value)
 
     output = BytesIO()
     doc.save(output)
