@@ -438,7 +438,7 @@ h3.project-header a {
     display: block;
     position: relative;
     border: 2px solid transparent;
-    transition: border 0.11s ease-out;
+    /*transition: border 0.11s ease-out;*/
 }
 
 .feature .cover {
@@ -475,7 +475,7 @@ h3.project-header a {
 
 .feature:hover {
     /*border: 2px solid #FF5995;*/
-    border: 2px solid var(--cyan);
+    /*border: 2px solid var(--cyan);*/
 }
 
 .feature:hover .note {
@@ -695,3 +695,24 @@ img.responsive {
     }
 }
 
+@media screen and (min-width: 961px) {
+    .feature {
+        overflow: hidden;
+    }
+    .feature .cover {
+        clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%);
+        transition: all 0.11s ease-out;
+        transform: scale(0.9);
+    }
+    /*.feature .note {*/
+    /*    padding-left: 10%;*/
+    /*    transition: padding 0.11s ease-out;*/
+    /*}*/
+    .feature:hover .cover {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        transform: scale(1.0);
+    }
+    /*.feature:hover .note {*/
+    /*    padding-left: 1rem;*/
+    /*}*/
+}
