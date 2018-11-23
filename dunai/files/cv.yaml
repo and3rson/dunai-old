@@ -6,6 +6,29 @@ bio:
   - >
       I've been coding for around 11 years and experienced a lot of technologies. My belief is that every task requires a specific set of tools and technologies in order to be solved efficiently. That's why I often switch mainly between Python, JS, C, Java and Go (sorted by experience.)
 companies:
+  - name: Micah Group
+    icon: images/micahgroup.png
+    color: '#F9DD7F'
+    role: Software Architect
+    technologies:
+      - Python: python
+      - Django: django
+      - Redis: redis
+      - PostgreSQL: postgresql
+      - Service architecture: microservices
+      - Docker: docker
+      - Kubernetes: linux
+      - Google Cloud: linux
+      - Keras: microservices
+      - TensorFlow: microservices
+      - Linux administration: linux
+      - Networking & security: security
+    info: |
+      T1DExchange is a financial document processing & decision making automation system for companies that provide loans to their customers.
+    description: |
+      I built a multi-service architecture & developed functionality for an automated document processing, OCR recognition, neural network processing, unpredicted structured data processing & feature extraction from financial statement documents with Python, Django, Keras & TensorFlow.
+    start: !!timestamp 2018-04-01
+
   - name: T1DExchange (UnitIO)
     icon: images/t1dexchange.png
     color: '#00A9D0'
@@ -28,6 +51,7 @@ companies:
     description: |
       I created entire infrastructure from scratch that automates collection, processing, managing and delivering of biological & PHI data.
     start: !!timestamp 2016-06-01
+    end: !!timestamp 2018-04-01
 
   - name: Red e App
     icon: images/redeapp.png
@@ -240,6 +264,7 @@ misc:
   - I believe that preserving low complexity of large project's components and respecting the law of Demeter is the key to maintainable system.
   - I love shaders & 3D graphics.
   - I love modding for HL, CS & Dota.
+  - I love trebuchets because they are the superior siege weapon.
   - I've spent over 9000 hours in Unreal Tournament 1999, Hitman 1-3, Half-Life (& mods), CS:GO, Hotline Miami, Dota & C&C.
   - I used to be Steam & Dota 2 translator and co-organizer & broadcaster of West-Ukrainian Dota 2 tournaments
   - I used to develop cheats for CS:GO (own wallhack, modified esp hack, own flashbang hack), although I've never used them in ranked games.

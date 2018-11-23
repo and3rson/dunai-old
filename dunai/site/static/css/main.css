@@ -70,6 +70,7 @@ h3 {
 
 h4 {
     font-size: 1.4rem;
+    font-weight: 300;
 }
 
 .header {
@@ -94,7 +95,8 @@ h4 {
 
 .header h2.message {
     /*font-size: 3rem;*/
-    font-size: 1.7rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.03rem;
     line-height: 100%;
     margin: 1rem 0 0;
     font-weight: 300;
@@ -214,7 +216,7 @@ h4 {
     bottom: 0;
     transform: rotate(0deg);
     z-index: 1;
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
     opacity: 0;
     transition: opacity 0.15s linear, transform 0.15s linear;
@@ -654,7 +656,7 @@ img.responsive {
 }
 
 .tippy-backdrop {
-    background: var(--green) !important;
+    /*background: var(--green) !important;*/
 }
 
 .tippy-tooltip {
@@ -662,12 +664,12 @@ img.responsive {
 }
 
 .tippy-tooltip .tippy-content {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     padding: 0.5rem;
     font-weight: 700;
     text-transform: uppercase;
     font-family: Open Sans;
-    color: var(--black);
+    color: var(--green) !important;
 }
 
 :focus {

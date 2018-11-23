@@ -27,7 +27,7 @@
                                 <div class="impact">
                                     <span>D</span><span>u</span><span>n</span><span>a</span><span>i</span>
                                 </div></h1>
-                            <h2 class="message">Show me what you've got!&trade;</h2>
+                            <h2 class="message">Pwning teh internetz since 2007</h2>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                                     <div class="company-technologies">
                                         {% for technology in company.technologies %}
                                             <span class="technology">
-                                                <i class="icon icon-{{ technology|value }}" title="{{ technology|key }}"></i>
+                                                <i class="icon icon-{{ technology|value }}" title="{{ technology|key }}" data-tippy="{{ technology|key }}"></i>
                                             </span>
                                         {% endfor %}
                                     </div>
@@ -243,7 +243,7 @@
                 $('.text-icon').addEventListener('click', () => window.open(atob('aHR0cHM6Ly94a2NkLmNvbS8xNjcwLw=='), '_blank'));
             });
         </script>
-        <script src="https://unpkg.com/tippy.js@beta/dist/tippy.all.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@3.2.0/dist/tippy.all.min.js"></script>
     </body>
 </html>
 
