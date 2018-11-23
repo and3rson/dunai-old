@@ -216,7 +216,7 @@ h4 {
     bottom: 0;
     transform: rotate(0deg);
     z-index: 1;
-    background-position: bottom;
+    background-position: center;
     background-size: cover;
     opacity: 0;
     transition: opacity 0.15s linear, transform 0.15s linear;
