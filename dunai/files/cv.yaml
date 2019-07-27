@@ -24,7 +24,7 @@ companies:
       - Linux administration: linux
       - Networking & security: security
     info: |
-      T1DExchange is a financial document processing & decision making automation system for companies that provide loans to their customers.
+      Micah Group is a financial document processing & decision making automation system for companies that provide loans to their customers.
     description: |
       I built a multi-service architecture & developed functionality for an automated document processing, OCR recognition, neural network processing, unpredicted structured data processing & feature extraction from financial statement documents with Python, Django, Keras & TensorFlow.
     start: !!timestamp 2018-04-01
